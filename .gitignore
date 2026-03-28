@@ -1,0 +1,14 @@
+# Local config
+.gemini/
+brain/
+prompting/
+tmp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
