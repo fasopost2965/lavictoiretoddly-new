@@ -20,18 +20,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Set recipient and subject
-    $to = "info@vecuro.com";
-    $subject = "New Submission from Website";
-    $headers = "From: Website Form <no-reply@" . $_SERVER['SERVER_NAME'] . ">";
+    $to = "contact@groupelavictoire.com";
+    $subject = "Nouvelle Pre-inscription (Ecole La Victoire)";
+    $headers = "From: Website Form <no-reply@" . $_SERVER['SERVER_NAME'] . ">\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     if (mail($to, $subject, $email_content, $headers)) {
         http_response_code(200);
-        echo "✅ Thank you! Your form has been submitted successfully.";
+        echo "✅ Merci ! Votre demande a bien été envoyée. Nous vous contacterons sous peu.";
     } else {
         http_response_code(500);
-        echo "❌ Sorry, we couldn't send your message. Try again later.";
+        echo "❌ Désolé, nous n'avons pas pu envoyer votre message. Veuillez réessayer plus tard.";
     }
 } else {
     http_response_code(403);
-    echo "Forbidden: Invalid request.";
+    echo "Action interdite : Requête invalide.";
 }
