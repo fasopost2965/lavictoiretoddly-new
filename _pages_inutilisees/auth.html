@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>
-    Toddly - Colorful Kindergarten & Preschool HTML5 Template | Vecuro | Home 1
+    Toddly - Colorful Kindergarten & Preschool HTML5 Template | Vecuro | Auth
   </title>
   <meta name="author" content="vecuro">
   <meta name="description" content="Toddly - Colorful Kindergarten & Preschool HTML5 Template">
@@ -488,7 +488,7 @@
                   </button>
                 </div>
                 <div class="d-none d-xxl-inline-flex">
-                  <a href="contact.html" class="vs-btn"><span class="vs-btn__border"></span>Inscrire son enfant</a>
+                  <a href="registration.html" class="vs-btn"><span class="vs-btn__border"></span>Inscrire son enfant</a>
                 </div>
                 <div class="d-none d-lg-inline-flex align-items-center">
                   <button class="sideMenuToggler">
@@ -516,108 +516,104 @@
   <div class="breadcrumb-wrapper z-index-common overflow-hidden">
     <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff"></div>
     <div class="breadcrumb-wrapper__bg wow animate__fadeInUp" data-wow-delay="0.15s" data-vs-gsap-parallax-speed="2" data-vs-gsap-parallax-zoom>
-      <img src="assets/img/bg/breadcrumb-bg-3.jpg" alt="session bg" />
+      <img src="assets/img/bg/breadcrumb-bg-3.jpg" alt="session bg">
     </div>
     <div class="container">
       <div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
-        <h1 class="breadcrumb-wrapper__title">My Dashboard</h1>
+        <h1 class="breadcrumb-wrapper__title">Auth</h1>
         <div class="breadcrumb-wrapper__menu--wrap">
           <ul class="breadcrumb-wrapper__menu">
             <li class="breadcrumb-wrapper__menu--item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-wrapper__menu--item">my account</li>
+            <li class="breadcrumb-wrapper__menu--item">Sing Up & Sign In</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
   <!-- Breadcrumb End -->
-  <div class="vs-dashboard space space-extra-bottom bg-color6" data-bg-src="assets/img/service/service-bg.png">
+  <!-- Class -->
+  <section class="bg-color6 space z-index-common" data-bg-src="assets/img/service/service-bg.png">
     <div class="container">
-      <div class="row">
-        <!-- Sidebar -->
-        <aside class="col-md-4 col-lg-3 vs-dashboard__sidebar mb-30">
-          <div class="vs-dashboard__card">
-            <h5 class="vs-dashboard__username">👋 Hello, John Doe</h5>
-            <ul class="nav flex-column nav-pills vs-dashboard__nav" id="accountTabs" role="tablist">
-              <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#dashboard" role="tab">Dashboard</a></li>
-              <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#orders" role="tab">Orders</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#downloads" role="tab">Downloads</a></li>
-              <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#addresses" role="tab">Addresses</a></li>
-              <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#account-details" role="tab">Account Details</a></li>
-              <li class="nav-item"><a class="nav-link text-danger" href="#">Logout</a></li>
-            </ul>
+      <div class="vs-auth">
+        <ul class="nav nav-tabs vs-auth__tabs" id="authTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab">Sign Up</button>
+          </li>
+        </ul>
+        <div class="tab-content vs-auth__content" id="authTabContent">
+          <!-- Login -->
+          <div class="tab-pane fade show active" id="login" role="tabpanel">
+            <form class="vs-auth__form">
+              <h3 class="vs-auth__title">Welcome Back</h3>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="d-flex justify-content-between mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">Remember Me</label>
+                </div>
+                <a href="#" class="vs-auth__link">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn vs-auth__btn">Login</button>
+              <div class="vs-auth__divider"><span>or</span></div>
+              <div class="vs-auth__socials">
+                <button type="button" class="vs-auth__social-btn vs-auth__social-btn--google">
+                  <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button type="button" class="vs-auth__social-btn vs-auth__social-btn--facebook">
+                  <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+              </div>
+            </form>
           </div>
-        </aside>
-        <!-- Content -->
-        <div class="col-md-8 col-lg-9 vs-dashboard__content">
-          <div class="tab-content">
-            <!-- Dashboard -->
-            <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
-              <div class="vs-dashboard__card">
-                <h4 class="vs-dashboard__title">Dashboard</h4>
-                <p>From your account dashboard you can view your <strong>recent orders</strong>, manage your
-                  <strong>shipping and billing addresses</strong>, and <strong>edit your password and
-                                    account
-                                    details</strong>.
-                </p>
+          <!-- Sign Up -->
+          <div class="tab-pane fade" id="signup" role="tabpanel">
+            <form class="vs-auth__form">
+              <h3 class="vs-auth__title">Create Account</h3>
+              <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Your name">
               </div>
-            </div>
-            <!-- Orders -->
-            <div class="tab-pane fade" id="orders" role="tabpanel">
-              <div class="vs-dashboard__card">
-                <h4 class="vs-dashboard__title">Orders</h4>
-                <p>You have not placed any orders yet.</p>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email">
               </div>
-            </div>
-            <!-- Downloads -->
-            <div class="tab-pane fade" id="downloads" role="tabpanel">
-              <div class="vs-dashboard__card">
-                <h4 class="vs-dashboard__title">Downloads</h4>
-                <p>No downloads available yet.</p>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password">
               </div>
-            </div>
-            <!-- Addresses -->
-            <div class="tab-pane fade" id="addresses" role="tabpanel">
-              <div class="vs-dashboard__card">
-                <h4 class="vs-dashboard__title">Addresses</h4>
-                <p>The following addresses will be used on the checkout page by default.</p>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="terms">
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" class="vs-auth__link">Mentions Légales</a>
+                </label>
               </div>
-            </div>
-            <!-- Account Details -->
-            <div class="tab-pane fade" id="account-details" role="tabpanel">
-              <div class="vs-dashboard__card">
-                <h4 class="vs-dashboard__title">Account Details</h4>
-                <form>
-                  <div class="row g-3">
-                    <div class="col-md-6">
-                      <label class="form-label">First name</label>
-                      <input type="text" class="form-control" value="John">
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label">Last name</label>
-                      <input type="text" class="form-control" value="Doe">
-                    </div>
-                    <div class="col-12">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control" value="john@example.com">
-                    </div>
-                    <div class="col-12">
-                      <label class="form-label">Password</label>
-                      <input type="password" class="form-control" placeholder="••••••••">
-                    </div>
-                    <div class="col-12 text-end">
-                      <button class="btn vs-dashboard__btn">Save Changes</button>
-                    </div>
-                  </div>
-                </form>
+              <button type="submit" class="btn vs-auth__btn vs-auth__btn--signup">Sign Up</button>
+              <div class="vs-auth__divider"><span>or</span></div>
+              <div class="vs-auth__socials">
+                <button type="button" class="vs-auth__social-btn vs-auth__social-btn--google">
+                  <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button type="button" class="vs-auth__social-btn vs-auth__social-btn--facebook">
+                  <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- Class end -->
   <div class="vs-footer bg-title">
     <div class="vs-footer__top z-index-common space-extra-top space-extra-bottom">
       <img src="assets/img/footer/footer-element-1.png" alt="Footer Element" class="vs-footer__ele1 wow animate__fadeInLeft" data-wow-delay="0.25s">
@@ -715,10 +711,10 @@
       <div class="container">
         <div class="row gy-3 gx-5 align-items-center justify-content-center justify-content-lg-between flex-column-reverse flex-lg-row">
           <div class="col-md-auto">
-            <p class="vs-footer__copyright mb-0">
+                        <p class="vs-footer__copyright mb-0">
               Copyright © <span id="currentYear"></span>
-              <a href="http://html.vecurosoft.com/toddly">Toddly</a>. Tous droits réservés
-              By <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a>.
+              <a href="index.html">École La Victoire</a>. Tous droits réservés.<br>
+              Conception <a href="https://fasopost.com" target="_blank">Fasopost Digital</a> (+212 777346487)
             </p>
           </div>
           <div class="col-md-auto">

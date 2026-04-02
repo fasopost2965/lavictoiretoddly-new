@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>
-    Toddly - Colorful Kindergarten & Preschool HTML5 Template | Vecuro | My Cart
+    Toddly - Colorful Kindergarten & Preschool HTML5 Template | Vecuro | Valider
   </title>
   <meta name="author" content="vecuro">
   <meta name="description" content="Toddly - Colorful Kindergarten & Preschool HTML5 Template">
@@ -488,7 +488,7 @@
                   </button>
                 </div>
                 <div class="d-none d-xxl-inline-flex">
-                  <a href="contact.html" class="vs-btn"><span class="vs-btn__border"></span>Inscrire son enfant</a>
+                  <a href="registration.html" class="vs-btn"><span class="vs-btn__border"></span>Inscrire son enfant</a>
                 </div>
                 <div class="d-none d-lg-inline-flex align-items-center">
                   <button class="sideMenuToggler">
@@ -520,11 +520,11 @@
     </div>
     <div class="container">
       <div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
-        <h1 class="breadcrumb-wrapper__title">My Cart</h1>
+        <h1 class="breadcrumb-wrapper__title">Valider</h1>
         <div class="breadcrumb-wrapper__menu--wrap">
           <ul class="breadcrumb-wrapper__menu">
             <li class="breadcrumb-wrapper__menu--item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-wrapper__menu--item">Cart</li>
+            <li class="breadcrumb-wrapper__menu--item">Valider</li>
           </ul>
         </div>
       </div>
@@ -533,18 +533,117 @@
   <!-- Breadcrumb End -->
   <!-- Class -->
   <section class="vs-cart--page space space-extra-bottom z-index-common overflow-hidden">
-    <div class="vs-event--ele1">
-      <img src="assets/img/elements/events-page-ele1.png" alt="event page ele1">
-    </div>
-    <div class="vs-event--ele2">
-      <img src="assets/img/elements/events-page-ele2.png" alt="event page ele1">
-    </div>
     <div class="container">
-      <div class="woocommerce-notices-wrapper">
-        <div class="woocommerce-message">Shipping costs updated.</div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="woocommerce-form-login-toggle">
+            <div class="woocommerce-info">Returning customer? <a href="#" class="showlogin">Click here to
+                login</a>
+            </div>
+          </div>
+          <form action="#" class="woocommerce-form-login mb-30">
+            <div class="form-group"><input type="text" class="form-control" placeholder="Username or email">
+            </div>
+            <div class="form-group"><input type="text" class="form-control" placeholder="Password"></div>
+            <div class="form-group">
+              <div class="custom-checkbox pt-2 pb-2">
+                <input id="checkbox1" name="checkbox1" type="checkbox" value="yes">
+                <label for="checkbox1">Remember Me</label>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <button type="submit" class="vs-btn">Login</button>
+              <p class="fs-xs mt-2 mb-0">
+                <a class="woocommerce-form-login__lost-password" href="#">Lost your password?</a>
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <div class="woocommerce-form-coupon-toggle">
+            <div class="woocommerce-info">Have a coupon? <a href="#" class="showcoupon">Click here to enter your
+                code</a></div>
+          </div>
+          <form action="#" class="woocommerce-form-coupon">
+            <div class="form-group"><input type="text" class="form-control" placeholder="Write your coupon code">
+            </div>
+            <div class="form-group"><button type="submit" class="vs-btn">Apply coupon</button>
+            </div>
+          </form>
+        </div>
       </div>
+      <form action="#" class="woocommerce-checkout mt-30">
+        <div class="row gx-30">
+          <div class="col-lg-6">
+            <h3>Billing Details</h3>
+            <div class="row">
+              <div class="col-12 form-group"><select class="form-select">
+                  <option>United Kingdom (UK)</option>
+                  <option>United State (US)</option>
+                  <option>Equatorial Guinea (GQ)</option>
+                  <option>Australia (AU)</option>
+                  <option>Germany (DE)</option>
+                </select></div>
+              <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="First Name"></div>
+              <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Last Name"></div>
+              <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Your Company Name">
+              </div>
+              <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Street Address">
+                <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+              </div>
+              <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Town / City"></div>
+              <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Country">
+              </div>
+              <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Postcode / Zip">
+              </div>
+              <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Email Address"> <input type="text" class="form-control" placeholder="Phone number"></div>
+              <div class="col-12 form-group">
+                <div class="custom-checkbox pt-2 pb-2">
+                  <input id="account" name="account" type="checkbox" value="yes">
+                  <label for="account">Create An Account?</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div id="ship-to-different-address">
+              <input id="ship-to-different-address-checkbox" type="checkbox" name="ship_to_different_address" value="1" checked="checked">
+              <label for="ship-to-different-address-checkbox">
+                Ship to a different address?
+              </label>
+            </div>
+            <div class="shipping_address">
+              <div class="row">
+                <div class="col-12 form-group"><select class="form-select">
+                    <option>United Kingdom (UK)</option>
+                    <option>United State (US)</option>
+                    <option>Equatorial Guinea (GQ)</option>
+                    <option>Australia (AU)</option>
+                    <option>Germany (DE)</option>
+                  </select></div>
+                <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="First Name"></div>
+                <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Last Name"></div>
+                <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Your Company Name">
+                </div>
+                <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Street Address">
+                  <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                </div>
+                <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Town / City"></div>
+                <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Country"></div>
+                <div class="col-md-6 form-group"><input type="text" class="form-control" placeholder="Postcode / Zip">
+                </div>
+                <div class="col-12 form-group"><input type="text" class="form-control" placeholder="Email Address">
+                  <input type="text" class="form-control" placeholder="Phone number">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 form-group"><textarea cols="20" rows="5" class="form-control" placeholder="Notes about your order, e.g. special notes for delivery."></textarea></div>
+          </div>
+        </div>
+      </form>
+      <h4 class="mt-4 pt-lg-2">Your Order</h4>
       <form action="#" class="woocommerce-cart-form">
-        <table class="cart_table">
+        <table class="cart_table mb-20">
           <thead>
             <tr>
               <th class="cart-col-image">Image</th>
@@ -552,147 +651,75 @@
               <th class="cart-col-price">Price</th>
               <th class="cart-col-quantity">Quantity</th>
               <th class="cart-col-total">Total</th>
-              <th class="cart-col-remove">Remove</th>
             </tr>
           </thead>
           <tbody>
             <tr class="cart_item">
-              <td data-title="Product"><a class="cart-productimage" href="shop.html"><img width="100" height="95" src="assets/img/shop/shop-sidebar-1-1.png" alt="Image"></a></td>
-              <td data-title="Name" class="cart_table__product-name">
-                <a class="cart-productname" href="shop.html">Headphones Wireless...</a>
+              <td data-title="Product">
+                <a class="cart-productimage" href="shop.html">
+                  <img width="91" height="91" src="assets/img/shop/shop-sidebar-1-1.png" alt="Image">
+                </a>
               </td>
-              <td data-title="Price"><span class="amount"><bdi><span>$</span>250.00</bdi></span></td>
-              <td data-title="Quantity">
-                <div class="quantity style2">
-                  <div class="quantity__field quantity-container">
-                    <div class="quantity__buttons">
-                      <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
-                      <input type="number" id="quantity1" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
-                    </div>
-                  </div>
-                </div>
+              <td data-title="Name">
+                <a class="cart-productname" href="shop.html">BMW Car Lexus GS
+                  Steering...</a>
               </td>
-              <td data-title="Total"><span class="amount"><bdi><span>$</span>250.00</bdi></span></td>
-              <td data-title="Remove"><a href="#" class="remove"><i class="fal fa-trash-alt"></i></a></td>
-            </tr>
-            <tr class="cart_item">
-              <td data-title="Product"><a class="cart-productimage" href="shop.html"><img width="100" height="95" src="assets/img/shop/shop-sidebar-1-2.png" alt="Image"></a></td>
-              <td data-title="Name" class="cart_table__product-name">
-                <a class="cart-productname" href="shop.html">Macbook Pro 16" Retina...</a>
-              </td>
-              <td data-title="Price"><span class="amount"><bdi><span>$</span>200.00</bdi></span></td>
-              <td data-title="Quantity">
-                <div class="quantity style2">
-                  <div class="quantity__field quantity-container">
-                    <div class="quantity__buttons">
-                      <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
-                      <input type="number" id="quantity2" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td data-title="Total"><span class="amount"><bdi><span>$</span>200.00</bdi></span></td>
-              <td data-title="Remove"><a href="#" class="remove"><i class="fal fa-trash-alt"></i></a></td>
-            </tr>
-            <tr class="cart_item">
-              <td data-title="Product"><a class="cart-productimage" href="shop.html"><img width="100" height="95" src="assets/img/shop/shop-sidebar-1-3.png" alt="Image"></a></td>
-              <td data-title="Name" class="cart_table__product-name">
-                <a class="cart-productname" href="shop.html">Airpods Wireless Bluetooth...</a>
-              </td>
-              <td data-title="Price"><span class="amount"><bdi><span>$</span>400.00</bdi></span></td>
-              <td data-title="Quantity">
-                <div class="quantity style2">
-                  <div class="quantity__field quantity-container">
-                    <div class="quantity__buttons">
-                      <button class="quantity-minus qty-btn"><i class="fal fa-minus"></i></button>
-                      <input type="number" id="quantity3" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <button class="quantity-plus qty-btn"><i class="fal fa-plus"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td data-title="Total"><span class="amount"><bdi><span>$</span>400.00</bdi></span></td>
-              <td data-title="Remove"><a href="#" class="remove"><i class="fal fa-trash-alt"></i></a></td>
-            </tr>
-            <tr>
-              <td colspan="6">
-                <div class="cart-footer-actions">
-                  <div class="vs-cart-coupon">
-                    <input id="vs-coupon" type="text" class="form-control" placeholder="Coupon Code...">
-                    <button type="submit" class="vs-btn"><span class="vs-btn__border"></span>Apply
-                      Coupon</button>
-                  </div>
-                  <div class="cart-footer-right">
-                    <button type="submit" class="vs-btn"><span class="vs-btn__border"></span>Update
-                      cart</button>
-                    <a href="shop.html" class="vs-btn vs-btn--style3"><span
-                                            class="vs-btn__border"></span>Continue Shopping</a>
-                  </div>
-                </div>
-              </td>
+              <td data-title="Price"><span class="amount"><bdi><span>$</span>200</bdi></span></td>
+              <td data-title="Quantity"><strong class="product-quantity">01</strong></td>
+              <td data-title="Total"><span class="amount"><bdi><span>$</span>200</bdi></span></td>
             </tr>
           </tbody>
+          <tfoot class="checkout-ordertable">
+            <tr class="cart-subtotal">
+              <th>Subtotal</th>
+              <td data-title="Subtotal" colspan="4"><span class="woocommerce-Price-amount amount"><bdi><span
+                                        class="woocommerce-Price-currencySymbol">$</span>200</bdi></span></td>
+            </tr>
+            <tr class="woocommerce-shipping-totals shipping">
+              <th>Shipping</th>
+              <td data-title="Shipping" colspan="4">Enter your address to view shipping options.</td>
+            </tr>
+            <tr class="order-total">
+              <th>Total</th>
+              <td data-title="Total" colspan="4"><strong><span
+                                    class="woocommerce-Price-amount amount"><bdi><span
+                                            class="woocommerce-Price-currencySymbol">$</span>200</bdi></span></strong>
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </form>
-      <div class="row justify-content-end">
-        <div class="col-md-8 col-lg-7 col-xl-6">
-          <h2 class="h4 summary-title">Cart Totals</h2>
-          <table class="cart_totals">
-            <tbody>
-              <tr>
-                <td>Cart Subtotal</td>
-                <td data-title="Cart Subtotal"><span class="amount"><bdi><span>$</span>600.00</bdi></span>
-                </td>
-              </tr>
-              <tr class="shipping">
-                <th>Shipping and Handling</th>
-                <td data-title="Shipping and Handling">
-                  <ul class="woocommerce-shipping-methods list-unstyled pt-0 pb-0">
-                    <li><input type="radio" id="free_shipping" name="shipping_method" class="shipping_method"> <label for="free_shipping">Free
-                        shipping</label></li>
-                    <li><input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" checked="checked"> <label for="flat_rate">Flat
-                        rate</label></li>
-                  </ul>
-                  <p class="woocommerce-shipping-destination">Shipping options will be updated during
-                    checkout.</p>
-                  <form action="#" method="post"><a href="#" class="shipping-calculator-button">Change
-                      address</a>
-                    <div class="shipping-calculator-form">
-                      <p class="form-row">
-                        <select class="form-select" id="calc_shipping_state" name="calc_shipping_state">
-                          <option value="AR">Argentina</option>
-                          <option value="AM">Armenia</option>
-                          <option value="BD" selected="selected">Bangladesh</option>
-                        </select>
-                      </p>
-                      <p><select class="form-select" id="calc_shipping_district" name="calc_shipping_district">
-                          <option value="">Select an option…</option>
-                          <option value="BD-05">Bagerhat</option>
-                          <option value="BD-01">Bandarban</option>
-                          <option value="BD-02">Barguna</option>
-                          <option value="BD-06">Barishal</option>
-                        </select></p>
-                      <p class="form-row"><input type="text" id="calc_shipping_city" class="form-control" placeholder="Town / City"></p>
-                      <p class="form-row"><input type="text" id="calc_shipping_postcode" class="form-control" placeholder="Postcode / ZIP"></p>
-                      <p><button class="vs-btn">Update</button></p>
-                    </div>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr class="order-total">
-                <td>Order Total</td>
-                <td data-title="Total"><strong><span
-                                        class="amount"><bdi><span>$</span>600.00</bdi></span></strong></td>
-              </tr>
-            </tfoot>
-          </table>
-          <div class="wc-proceed-to-checkout mb-30"><a href="checkout.html" class="vs-btn"><span
-                            class="vs-btn__border"></span>Proceed
-              to checkout</a></div>
+      <div class="mt-lg-3 mb-30">
+        <div class="woocommerce-checkout-payment">
+          <ul class="wc_payment_methods payment_methods methods">
+            <li class="wc_payment_method payment_method_bacs"><input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked"> <label for="payment_method_bacs">Direct bank transfer</label>
+              <div class="payment_box payment_method_bacs">
+                <p>Make your payment directly into our bank account. Please use your Order ID as the
+                  payment reference. Your order will not be shipped until the funds have cleared in
+                  our account.</p>
+              </div>
+            </li>
+            <li class="wc_payment_method payment_method_cheque"><input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque"> <label for="payment_method_cheque">Cheque
+                Payment</label>
+              <div class="payment_box payment_method_cheque">
+                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
+                  Store Postcode.</p>
+              </div>
+            </li>
+            <li class="wc_payment_method payment_method_cod"><input id="payment_method_cod" type="radio" class="input-radio" name="payment_method"> <label for="payment_method_cod">Credit Cart
+                <img src="assets/img/shop/credit-payment.png" alt="image"></label>
+              <div class="payment_box payment_method_cod">
+                <p>Pay with cash upon delivery.</p>
+              </div>
+            </li>
+            <li class="wc_payment_method payment_method_paypal"><input id="payment_method_paypal" type="radio" class="input-radio" name="payment_method" value="paypal"> <label for="payment_method_paypal">Paypal</label>
+              <div class="payment_box payment_method_paypal">
+                <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="form-row place-order"><button type="submit" class="vs-btn">Place order</button></div>
         </div>
       </div>
     </div>
@@ -795,10 +822,10 @@
       <div class="container">
         <div class="row gy-3 gx-5 align-items-center justify-content-center justify-content-lg-between flex-column-reverse flex-lg-row">
           <div class="col-md-auto">
-            <p class="vs-footer__copyright mb-0">
+                        <p class="vs-footer__copyright mb-0">
               Copyright © <span id="currentYear"></span>
-              <a href="http://html.vecurosoft.com/toddly">Toddly</a>. Tous droits réservés
-              By <a href="https://themeforest.net/user/vecuro_themes">Vecuro</a>.
+              <a href="index.html">École La Victoire</a>. Tous droits réservés.<br>
+              Conception <a href="https://fasopost.com" target="_blank">Fasopost Digital</a> (+212 777346487)
             </p>
           </div>
           <div class="col-md-auto">
