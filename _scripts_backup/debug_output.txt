@@ -1,0 +1,40 @@
+=== LOG ERROR ===
+#30 /home/u496944919/domains/sore-sports.com/public_html/new/vendor/symfony/console/Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand()
+#31 /home/u496944919/domains/sore-sports.com/public_html/new/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#32 /home/u496944919/domains/sore-sports.com/public_html/new/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Symfony\\Component\\Console\\Application->run()
+#33 /home/u496944919/domains/sore-sports.com/public_html/new/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#34 /home/u496944919/domains/sore-sports.com/public_html/new/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#35 {main}
+"} 
+[2026-03-29 23:51:10] production.ERROR: Erreur d'envoi mail contact: The "ssl" scheme is not supported; supported schemes for mailer "smtp" are: "smtp", "smtps".  
+[2026-03-30 00:12:37] production.ERROR: Erreur d'envoi mail contact: The "ssl" scheme is not supported; supported schemes for mailer "smtp" are: "smtp", "smtps".  
+[2026-03-30 00:13:31] production.ERROR: Erreur d'envoi mail contact: The "ssl" scheme is not supported; supported schemes for mailer "smtp" are: "smtp", "smtps".  
+=== ENV MAIL ===
+MAIL_MAILER=smtp
+MAIL_SCHEME=ssl
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=fasopost24@gmail.com
+MAIL_PASSWORD=Prodesk@2965
+MAIL_FROM_ADDRESS="contact@sore-sports.com"
+MAIL_FROM_NAME="Sore Sports Management"
+=== KEYS ===
+__('site.form_email_ph')
+__('site.form_firstname')
+__('site.form_firstname_ph')
+__('site.form_lastname')
+__('site.form_lastname_ph')
+__('site.form_message')
+__('site.form_message_ph')
+__('site.form_opt_camp')
+__('site.form_opt_contract')
+__('site.form_opt_event')
+__('site.form_opt_fifa')
+__('site.form_opt_friendly')
+__('site.form_opt_logistics')
+__('site.form_opt_marketing')
+__('site.form_opt_other')
+__('site.form_phone')
+__('site.form_subject')
+__('site.form_subject_ph')
+__('site.form_submit')

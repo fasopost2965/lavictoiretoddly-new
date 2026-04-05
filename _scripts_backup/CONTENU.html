@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/gallery/logo-lavictoire.png.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/gallery/logo-lavictoire.png.jpg">
+  <meta name="msapplication-TileImage" content="../assets/img/gallery/logo-lavictoire.png.jpg">
+<title>École La Victoire – Crèche · Maternelle · Primaire · Tétouan</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+/* ═══ ROOT ═══ */
+:root{
+  --primary:#C9A24A;
+  --primary-dark:#A67C2E;
+  --primary-light:#F5E6C2;
+  --primary-xlight:#FFFBF2;
+  --pink:#F74F75;
+  --green:#22B573;
+  --blue:#3A86FF;
+  --purple:#7B5EA7;
+  --orange:#FF6B35;
+  --yellow:#FFD60A;
+  --dark:#1E1B18;
+  --muted:#6C757D;
+  --white:#fff;
+  --cream:#FFFBF2;
+  --border:#EDE8DF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:#444;overflow-x:hidden;background:#fff}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;line-height:1.2;color:var(--dark)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+p{line-height:1.8;color:var(--muted)}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+
+/* ═══ PRELOADER ═══ */
+#preloader{position:fixed;inset:0;background:var(--white);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .6s,visibility .6s}
+#preloader.hide{opacity:0;visibility:hidden}
+.pre-logo{width:90px;height:90px;object-fit:contain;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(201,162,74,0))}50%{transform:scale(1.08);filter:drop-shadow(0 0 16px rgba(201,162,74,.5))}}
+.pre-spinner{width:56px;height:56px;border:4px solid var(--primary-light);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pre-txt{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ═══ BACK TO TOP ═══ */
+#back-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;background:var(--primary);border:none;border-radius:50%;color:#fff;font-size:16px;cursor:pointer;z-index:500;transform:translateY(100px);opacity:0;transition:all .4s;box-shadow:0 4px 20px rgba(201,162,74,.4)}
+#back-top.show{transform:translateY(0);opacity:1}
+#back-top:hover{background:var(--primary-dark);transform:translateY(-3px)}
+
+/* ═══ PROGRESS BAR ═══ */
+#pbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--pink));z-index:2000;width:0%;transition:width .1s}
+
+/* ═══ HEADER TOP ═══ */
+.header-top{background:var(--primary);padding:9px 0}
+.header-top p,.header-top a,.header-top li{font-size:13px;font-weight:600;color:rgba(255,255,255,.88)}
+.header-top a:hover{color:#fff}
+.header-contact-list{list-style:none;display:flex;align-items:center;gap:20px;margin:0;padding:0;justify-content:flex-end}
+.header-contact-list li{display:flex;align-items:center;gap:7px}
+.header-contact-list i{font-size:13px;color:rgba(255,255,255,.7)}
+
+/* ═══ NAV ═══ */
+.main-header{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+.main-header .container{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+.header-logo img{height:60px;width:auto;object-fit:contain}
+.nav-menu{list-style:none;display:flex;align-items:center;gap:4px;margin:0;padding:0}
+.nav-menu a{padding:8px 13px;font-size:14px;font-weight:700;color:var(--dark);border-radius:8px;display:block;transition:all .3s;font-family:'Nunito',sans-serif}
+.nav-menu a:hover,.nav-menu a.active{background:var(--primary-light);color:var(--primary-dark)}
+.nav-cta{background:var(--primary)!important;color:#fff!important;border-radius:50px!important;padding:10px 22px!important;box-shadow:0 4px 16px rgba(201,162,74,.35)!important}
+.nav-cta:hover{background:var(--primary-dark)!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,74,.45)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 0;border-top:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:10px 16px;font-size:14px;font-weight:700;color:var(--dark);border-radius:8px;display:block}
+.mobile-menu a:hover{background:var(--primary-light);color:var(--primary-dark)}
+
+/* ═══ SECTION COMMON ═══ */
+.section-padding{padding:90px 0}
+.section-title .sub-title{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 18px;border-radius:50px;margin-bottom:14px;font-family:'Nunito',sans-serif}
+.sub-bg-1{background:var(--primary-light);color:var(--primary-dark)}
+.sub-bg-2{background:#FFE0E8;color:#C0185A}
+.sub-bg-3{background:#D4F5E9;color:#0D7A4A}
+.sub-bg-4{background:#D8EAFF;color:#1A56CC}
+.sub-bg-5{background:#EDE0FF;color:#5E2EA8}
+.sub-bg-6{background:#FFE8D4;color:#B84A00}
+.sub-bg-white{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.section-title h2{font-size:clamp(28px,3.5vw,46px);font-weight:800;margin-bottom:0}
+.section-title h2 span{color:var(--primary)}
+.section-title p{font-size:16px;color:var(--muted);max-width:580px;margin:16px auto 0}
+
+/* ═══ THEME BUTTON ═══ */
+.theme-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 28px;background:var(--primary);color:#fff;border-radius:50px;font-size:14px;font-weight:800;font-family:'Nunito',sans-serif;border:none;cursor:pointer;transition:all .3s;box-shadow:0 6px 20px rgba(201,162,74,.35);position:relative;overflow:hidden}
+.theme-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.theme-btn:hover::after{transform:scaleX(1)}
+.theme-btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,162,74,.45);color:#fff}
+.theme-btn.style-2{background:transparent;color:var(--primary);border:2px solid var(--primary);box-shadow:none}
+.theme-btn.style-2:hover{background:var(--primary);color:#fff}
+.theme-btn.style-pink{background:var(--pink);box-shadow:0 6px 20px rgba(247,79,117,.3)}
+.theme-btn.style-pink:hover{background:#d43060;box-shadow:0 10px 28px rgba(247,79,117,.45)}
+
+/* ═══ DECORATIVE SHAPES (pure CSS) ═══ */
+.shape-blob{position:absolute;border-radius:50%;pointer-events:none;animation:float-y 4s ease-in-out infinite}
+@keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes float-x{0%,100%{transform:translateX(0)}50%{transform:translateX(-16px)}}
+.float-x{animation:float-x 5s ease-in-out infinite}
+
+/* ═══ HERO ═══ */
+.hero-section{background:linear-gradient(135deg,#FFF9EE 0%,#FFFBF2 40%,#F0F8FF 100%);min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 60px}
+.hero-blob-1{width:320px;height:320px;background:rgba(201,162,74,.08);top:-80px;right:10%;animation-duration:6s}
+.hero-blob-2{width:200px;height:200px;background:rgba(247,79,117,.07);bottom:10%;left:5%;animation-duration:5s;animation-delay:.5s}
+.hero-blob-3{width:140px;height:140px;background:rgba(34,181,115,.08);top:20%;right:5%;animation-duration:7s;animation-delay:1s}
+.hero-content h1{font-size:clamp(34px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;color:var(--dark)}
+.hero-content h1 span{color:var(--primary)}
+.hero-content p{font-size:17px;color:var(--muted);margin-bottom:32px;max-width:480px;line-height:1.75}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:40px}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap}
+.hstat-box{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 4px 20px rgba(0,0,0,.07);display:flex;align-items:center;gap:12px;border:2px solid var(--border);transition:all .3s}
+.hstat-box:hover{transform:translateY(-4px);border-color:var(--primary-light);box-shadow:0 8px 28px rgba(201,162,74,.15)}
+.hstat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.hi1{background:var(--primary-light);color:var(--primary-dark)}
+.hi2{background:#D4F5E9;color:#0D7A4A}
+.hi3{background:#D8EAFF;color:#1A56CC}
+.hi4{background:#FFE0E8;color:#C0185A}
+.hstat-v{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--dark);line-height:1;display:block}
+.hstat-l{font-size:11px;font-weight:700;color:var(--muted);display:block}
+/* Hero image */
+.hero-img-wrap{position:relative}
+.hero-main-img{border-radius:30px;width:100%;max-height:500px;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.hero-float-badge{position:absolute;bottom:24px;left:-20px;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:12px;animation:float-y 4s ease-in-out infinite}
+.hfb-ico{width:46px;height:46px;border-radius:14px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:22px}
+.hfb-txt strong{display:block;font-size:15px;font-weight:900;color:var(--dark)}
+.hfb-txt span{font-size:12px;color:var(--muted);font-weight:600}
+.hero-float-badge2{position:absolute;top:30px;right:-16px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:18px;padding:14px 18px;box-shadow:0 8px 30px rgba(201,162,74,.35);text-align:center;color:#fff;animation:float-x 5s ease-in-out infinite}
+.hfb2-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;display:block;line-height:1}
+.hfb2-txt{font-size:11px;font-weight:700;opacity:.85;display:block}
+
+/* ═══ ABOUT ═══ */
+.about-section{background:var(--cream);position:relative;overflow:hidden}
+.about-img-box{position:relative}
+.about-main-img{border-radius:30px;width:100%;height:440px;object-fit:cover;box-shadow:0 16px 50px rgba(0,0,0,.1)}
+.about-counter-badge{position:absolute;bottom:28px;right:-14px;background:#fff;border-radius:20px;padding:20px 24px;box-shadow:0 8px 30px rgba(0,0,0,.12);text-align:center;animation:float-y 5s ease-in-out infinite;border:2px solid var(--primary-light)}
+.acb-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:var(--primary);line-height:1;display:block}
+.acb-plus{font-size:24px;color:var(--primary-dark);vertical-align:super}
+.acb-txt{font-size:13px;font-weight:700;color:var(--muted);display:block;margin-top:4px}
+.about-check-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 28px}
+.acl-item{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:var(--dark)}
+.acl-item i{width:26px;height:26px;background:var(--primary-light);color:var(--primary-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+/* progress bars */
+.progress-wrap{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.pro-item .pro-head{display:flex;justify-content:space-between;margin-bottom:8px}
+.pro-item .pro-head h4{font-size:14px;font-weight:800;margin:0;font-family:'Nunito',sans-serif}
+.pro-item .pro-head span{font-size:14px;font-weight:800;color:var(--primary)}
+.progress{height:8px;border-radius:50px;background:var(--border);overflow:visible!important}
+.progress-bar{border-radius:50px;position:relative;transition:width 1.5s ease}
+.pb-gold{background:linear-gradient(90deg,var(--primary),var(--primary-dark))}
+.pb-pink{background:linear-gradient(90deg,var(--pink),#C0185A)}
+.pb-green{background:linear-gradient(90deg,var(--green),#0D7A4A)}
+
+/* ═══ PROGRAMS / CYCLES ═══ */
+.program-section{position:relative;overflow:hidden}
+.prog-blob-1{width:260px;height:260px;background:rgba(201,162,74,.06);top:-60px;left:-60px;animation-duration:7s}
+.prog-blob-2{width:180px;height:180px;background:rgba(247,79,117,.06);bottom:40px;right:-40px;animation-duration:6s}
+.program-card{background:#fff;border-radius:28px;padding:36px 28px;position:relative;overflow:hidden;transition:all .35s;border:2px solid var(--border);height:100%;cursor:default}
+.program-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;border-radius:28px 28px 0 0}
+.pc-gold::before{background:linear-gradient(90deg,var(--primary),#F5D89C)}
+.pc-pink::before{background:linear-gradient(90deg,var(--pink),#FFB3C6)}
+.pc-green::before{background:linear-gradient(90deg,var(--green),#7BE8C0)}
+.pc-blue::before{background:linear-gradient(90deg,var(--blue),#A5C8FF)}
+.program-card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:transparent}
+.prog-icon{width:70px;height:70px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:20px;transition:transform .35s}
+.program-card:hover .prog-icon{transform:scale(1.12) rotate(-8deg)}
+.pci-gold{background:var(--primary-light)}.pci-pink{background:#FFE0E8}.pci-green{background:#D4F5E9}.pci-blue{background:#D8EAFF}
+.program-card h3{font-size:22px;font-weight:700;margin-bottom:6px}
+.program-card .age-tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 12px;border-radius:100px;margin-bottom:12px}
+.at-gold{background:var(--primary-light);color:var(--primary-dark)}.at-pink{background:#FFE0E8;color:#C0185A}.at-green{background:#D4F5E9;color:#0D7A4A}.at-blue{background:#D8EAFF;color:#1A56CC}
+.program-card p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:18px}
+.prog-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.prog-list li{font-size:13px;font-weight:600;color:var(--dark);display:flex;align-items:flex-start;gap:8px}
+.prog-list li i{margin-top:3px;font-size:11px;color:var(--primary);flex-shrink:0}
+
+/* ═══ ACTIVITIES / VIE SCOLAIRE ═══ */
+.activities-section{background:linear-gradient(160deg,#1a0a2e 0%,#0d1a2e 100%);position:relative;overflow:hidden}
+.act-blob{position:absolute;border-radius:50%;opacity:.08}
+.act-blob-1{width:300px;height:300px;background:#fff;top:-60px;right:-60px}
+.act-blob-2{width:200px;height:200px;background:var(--primary);bottom:40px;left:40px}
+.activity-card{border-radius:20px;overflow:hidden;transition:all .35s;position:relative;background:#fff;height:100%}
+.activity-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.act-img{height:160px;overflow:hidden;position:relative}
+.act-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.activity-card:hover .act-img img{transform:scale(1.08)}
+.act-body{padding:20px}
+.act-body h3{font-size:17px;font-weight:700;margin-bottom:10px}
+.act-body ul{list-style:none;padding:0}
+.act-body li{font-size:13px;color:var(--muted);padding:4px 0;display:flex;align-items:center;gap:7px}
+.act-body li i{color:var(--primary);font-size:11px;flex-shrink:0}
+.act-badge{position:absolute;top:12px;right:12px;width:38px;height:38px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+
+/* ═══ CHOOSE US / SECURITY ═══ */
+.choose-section{background:var(--cream);position:relative;overflow:hidden}
+.choose-img-stack{position:relative;height:440px}
+.ci-main{border-radius:28px;width:calc(100% - 60px);height:360px;object-fit:cover;box-shadow:0 16px 50px rgba(0,0,0,.12)}
+.ci-float{position:absolute;bottom:0;right:0;width:200px;height:150px;border-radius:20px;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.12);animation:float-y 5s ease-in-out infinite}
+.choose-cards{display:flex;flex-direction:column;gap:16px}
+.choose-card{display:flex;gap:16px;align-items:flex-start;padding:22px;background:#fff;border-radius:18px;border:2px solid var(--border);transition:all .3s}
+.choose-card:hover{border-color:var(--primary-light);transform:translateX(8px);box-shadow:0 6px 24px rgba(201,162,74,.1)}
+.cc-ico{width:52px;height:52px;flex-shrink:0;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .3s}
+.choose-card:hover .cc-ico{transform:scale(1.1) rotate(-6deg)}
+.cci1{background:var(--primary-light);color:var(--primary-dark)}.cci2{background:#D8EAFF;color:#1A56CC}.cci3{background:#D4F5E9;color:#0D7A4A}.cci4{background:#FFE0E8;color:#C0185A}
+.choose-card h4{font-size:16px;font-weight:800;margin-bottom:5px;font-family:'Nunito',sans-serif;color:var(--dark)}
+.choose-card p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0}
+
+/* ═══ COUNTER ═══ */
+.counter-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary),#D4AE5C);padding:72px 0;position:relative;overflow:hidden}
+.counter-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px}
+.counter-item{text-align:center;padding:20px;position:relative}
+.counter-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.2)}
+.counter-icon{font-size:38px;color:rgba(255,255,255,.75);margin-bottom:12px;display:block}
+.counter-num{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,64px);font-weight:800;color:#fff;line-height:1;display:block}
+.counter-label{font-size:15px;font-weight:700;color:rgba(255,255,255,.78);margin-top:8px;display:block}
+.counter-sub{font-size:12px;color:rgba(255,255,255,.45);margin-top:3px;display:block}
+
+/* ═══ TRANSPORT ═══ */
+.transport-section{position:relative;overflow:hidden}
+.transport-img-box{position:relative;height:420px}
+.tr-main{border-radius:28px;width:100%;height:320px;object-fit:cover;box-shadow:0 16px 50px rgba(0,0,0,.1)}
+.tr-float{position:absolute;bottom:0;right:-10px;width:190px;height:130px;object-fit:cover;border-radius:20px;border:4px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.12);animation:float-y 5s ease-in-out infinite .5s}
+.tr-num-badge{position:absolute;top:20px;left:-16px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:20px;padding:16px 20px;box-shadow:0 8px 24px rgba(201,162,74,.4);text-align:center;color:#fff;animation:float-x 5s ease-in-out infinite}
+.tnb-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;display:block;line-height:1}
+.tnb-txt{font-size:12px;font-weight:700;opacity:.85;display:block}
+.transport-features{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.transport-features li{display:flex;align-items:center;gap:13px;padding:14px 18px;background:var(--cream);border-radius:14px;border:2px solid var(--border);font-size:14px;font-weight:600;color:var(--dark);transition:all .3s}
+.transport-features li:hover{border-color:var(--primary-light);background:#fff;transform:translateX(6px)}
+.transport-features li i{width:34px;height:34px;background:var(--primary-light);color:var(--primary-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+
+/* ═══ RESTAURATION ═══ */
+.restau-section{background:var(--cream)}
+.restau-card{background:#fff;border-radius:28px;overflow:hidden;border:2px solid var(--border);transition:all .35s;height:100%}
+.restau-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:transparent}
+.restau-img{height:220px;overflow:hidden}
+.restau-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.restau-card:hover .restau-img img{transform:scale(1.07)}
+.restau-body{padding:28px}
+.restau-body h3{font-size:22px;font-weight:700;margin-bottom:10px}
+.restau-body p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+.feature-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.feature-list li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--dark)}
+.feature-list li i{color:var(--primary);flex-shrink:0}
+
+/* ═══ DIGITAL ═══ */
+.digital-section{background:linear-gradient(135deg,#0d1a2e 0%,#1a0a2e 100%);position:relative;overflow:hidden}
+.digital-panel{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:28px;padding:36px;backdrop-filter:blur(8px)}
+.dp-header{display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:22px}
+.dp-logo{width:54px;height:54px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 16px rgba(201,162,74,.3)}
+.dp-title strong{font-size:18px;font-weight:800;color:#fff;display:block}
+.dp-title span{font-size:12px;color:rgba(255,255,255,.5);font-weight:600}
+.dp-rows{display:flex;flex-direction:column;gap:10px}
+.dp-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:rgba(255,255,255,.06);border-radius:12px;border:1px solid rgba(255,255,255,.08);transition:all .3s}
+.dp-row:hover{background:rgba(255,255,255,.1)}
+.dp-rl{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
+.dp-rl i{font-size:16px;width:20px;text-align:center}
+.dim{opacity:.45}
+.badge-active{background:#D4F5E9;color:#0D7A4A;font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px}
+.badge-soon{background:var(--primary-light);color:var(--primary-dark);font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px}
+.digital-feature{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
+.df-icon{width:56px;height:56px;border-radius:16px;background:rgba(201,162,74,.15);border:1.5px solid rgba(201,162,74,.3);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:transform .3s}
+.digital-feature:hover .df-icon{transform:scale(1.1) rotate(-6deg)}
+.df-title{font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;font-family:'Nunito',sans-serif}
+.df-text{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin:0}
+
+/* ═══ TESTIMONIALS ═══ */
+.testimonial-section{background:#fff;position:relative;overflow:hidden}
+.testi-blob{position:absolute;border-radius:50%;opacity:.06}
+.testi-blob-1{width:320px;height:320px;background:var(--primary);top:-80px;right:-80px}
+.testi-blob-2{width:220px;height:220px;background:var(--pink);bottom:40px;left:-60px}
+.testi-card{background:var(--cream);border:2px solid var(--border);border-radius:24px;padding:32px;transition:all .35s;position:relative;height:100%}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,var(--primary),#F5D89C);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.testi-card:hover::before{transform:scaleX(1)}
+.testi-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(201,162,74,.12);border-color:var(--primary-light)}
+.testi-quote{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--primary-light);line-height:.6;margin-bottom:14px;display:block}
+.testi-text{font-size:15px;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:20px}
+.testi-stars{color:var(--primary);font-size:14px;letter-spacing:3px;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;border:3px solid var(--primary-light)}
+.testi-name{font-size:14px;font-weight:800;color:var(--dark);display:block}
+.testi-role{font-size:12px;color:var(--muted);font-weight:600;display:block}
+
+/* ═══ GALLERY ═══ */
+.gallery-section{background:var(--cream)}
+.gal-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
+.gtab{padding:9px 22px;border-radius:50px;border:2px solid var(--border);background:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all .3s;color:var(--dark);font-family:'Nunito',sans-serif}
+.gtab:hover,.gtab.active{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 4px 16px rgba(201,162,74,.3)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;border:2px solid var(--border)}
+.gal-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .6s}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,27,24,.65),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:14px}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-label{font-size:13px;font-weight:800;color:#fff;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);padding:5px 12px;border-radius:100px}
+.gal-note{text-align:center;margin-top:20px;font-size:13px;color:var(--muted)}
+
+/* ═══ INSTAGRAM ═══ */
+.instagram-section{background:#fff}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:28px}
+.insta-item{border-radius:10px;overflow:hidden;aspect-ratio:1;position:relative;cursor:pointer}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.insta-item:hover img{transform:scale(1.08)}
+.insta-item-ov{position:absolute;inset:0;background:rgba(201,162,74,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.insta-item:hover .insta-item-ov{opacity:1}
+.insta-item-ov i{font-size:26px;color:#fff}
+.insta-cta{text-align:center}
+.insta-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border-radius:50px;font-size:15px;font-weight:800;transition:all .3s;font-family:'Nunito',sans-serif}
+.insta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,50,100,.35);color:#fff}
+
+/* ═══ REGISTRATION FORM ═══ */
+.enroll-section{background:linear-gradient(135deg,#1a0a2e 0%,#0d1a2e 100%);position:relative;overflow:hidden}
+.enroll-blob{position:absolute;border-radius:50%;opacity:.06}
+.form-box{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:28px;padding:44px;backdrop-filter:blur(8px)}
+.form-box h3{font-size:28px;font-weight:700;color:#fff;margin-bottom:6px}
+.form-box .fsub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px;display:block}
+.fstep-bar{display:flex;align-items:center;margin-bottom:30px;position:relative}
+.fstep-bar::before{content:'';position:absolute;top:17px;left:0;right:0;height:2px;background:rgba(255,255,255,.1);z-index:0}
+.fstep-track{position:absolute;top:17px;left:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--primary-dark));z-index:1;transition:width .4s}
+.fstep-it{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;position:relative;z-index:2}
+.fstep-c{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:rgba(255,255,255,.5);transition:all .4s;border:2px solid rgba(255,255,255,.15)}
+.fstep-c.active,.fstep-c.done{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 4px 14px rgba(201,162,74,.4)}
+.fstep-c.active{transform:scale(1.12)}
+.fstep-l{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.05em;text-transform:uppercase;transition:color .4s}
+.fstep-l.active{color:var(--primary)}
+.fpanel{display:none}.fpanel.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.inpt{width:100%;padding:13px 18px;border-radius:14px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);font-family:'Nunito',sans-serif;font-size:14px;font-weight:500;color:#fff;outline:none;transition:border-color .3s}
+.inpt::placeholder{color:rgba(255,255,255,.3)}
+.inpt:focus{border-color:var(--primary)}
+select.inpt option{background:#1a0a2e;color:#fff}
+textarea.inpt{resize:vertical;min-height:88px}
+.fnav{display:flex;gap:10px;margin-top:14px}
+.btn-next{flex:1;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:50px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .3s;box-shadow:0 6px 20px rgba(201,162,74,.3)}
+.btn-next:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.btn-back{padding:13px 20px;background:transparent;color:rgba(255,255,255,.5);border:1.5px solid rgba(255,255,255,.15);border-radius:50px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s}
+.btn-back:hover{border-color:var(--primary);color:var(--primary)}
+.recap-box{padding:14px 18px;background:rgba(201,162,74,.1);border:1.5px solid rgba(201,162,74,.25);border-radius:14px;margin-bottom:14px}
+.recap-box p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin:0}
+.form-success{text-align:center;padding:40px 20px;display:none;flex-direction:column;align-items:center;gap:16px}
+.form-success.show{display:flex;animation:fadeUp .5s ease}
+.form-success .scheck{width:72px;height:72px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 8px 24px rgba(34,181,115,.35)}
+.form-success h3{font-size:26px;color:#fff}
+.form-success p{color:rgba(255,255,255,.6);line-height:1.7}
+.enroll-info h3{font-size:28px;font-weight:700;color:#fff;margin-bottom:12px}
+.enroll-info > p{color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:28px}
+.esteps{display:flex;flex-direction:column}
+.estep{display:flex;gap:18px;padding-bottom:24px;position:relative}
+.estep:not(:last-child)::after{content:'';position:absolute;left:20px;top:46px;bottom:0;width:2px;background:rgba(201,162,74,.25);border-radius:2px}
+.estep-num{width:42px;height:42px;flex-shrink:0;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;font-family:'Playfair Display',serif;box-shadow:0 4px 16px rgba(201,162,74,.3);position:relative;z-index:1}
+.estep-body{padding-top:7px}
+.estep-body h4{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;font-family:'Nunito',sans-serif}
+.estep-body p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.65;margin:0}
+.docs-box{background:rgba(201,162,74,.1);border:1.5px solid rgba(201,162,74,.25);border-radius:18px;padding:22px;margin-top:20px}
+.docs-box h4{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px;font-family:'Nunito',sans-serif}
+.docs-box ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+.docs-box li{font-size:13px;font-weight:600;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:8px}
+.docs-box li i{color:var(--primary)}
+
+/* ═══ CONTACT ═══ */
+.contact-section{background:#fff}
+.con-info-card{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;background:var(--cream);border-radius:18px;border:2px solid var(--border);transition:all .3s;height:100%}
+.con-info-card:hover{border-color:var(--primary-light);transform:translateX(6px);box-shadow:0 6px 24px rgba(201,162,74,.1)}
+.cic-ico{width:50px;height:50px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:transform .3s}
+.con-info-card:hover .cic-ico{transform:scale(1.1) rotate(-5deg)}
+.cico1{background:var(--primary-light);color:var(--primary-dark)}.cico2{background:#D4F5E9;color:#0D7A4A}.cico3{background:#D8EAFF;color:#1A56CC}.cico4{background:#FFE0E8;color:#C0185A}
+.cic-body strong{font-size:14px;font-weight:800;color:var(--dark);display:block;margin-bottom:4px}
+.cic-body span,.cic-body a{font-size:13.5px;color:var(--muted);font-weight:500;display:block}
+.cic-body a{color:var(--primary-dark);font-weight:700}
+.map-wrap{border-radius:24px;overflow:hidden;border:2px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.map-wrap iframe{width:100%;height:280px;border:none;display:block}
+.hours-box{background:var(--cream);border:2px solid var(--border);border-radius:18px;padding:22px 26px;margin-top:16px}
+.hours-box h4{font-size:17px;font-weight:700;margin-bottom:14px}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px}
+.hours-row:last-child{border-bottom:none}
+.hr-open{font-weight:800;color:var(--primary-dark)}.hr-closed{font-weight:700;color:#bbb}
+.soc-btns{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.soc-btn{padding:6px 14px;border:2px solid var(--border);border-radius:50px;font-size:12.5px;font-weight:700;color:var(--dark);background:#fff;display:inline-flex;align-items:center;gap:5px;transition:all .3s;font-family:'Nunito',sans-serif}
+.soc-btn:hover{border-color:var(--primary);color:var(--primary-dark);transform:translateY(-2px)}
+
+/* ═══ NEWSLETTER ═══ */
+.newsletter-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary),#D4AE5C);padding:88px 0;position:relative;overflow:hidden}
+.newsletter-section::before{content:'';position:absolute;top:-100px;left:-100px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
+.newsletter-section::after{content:'';position:absolute;bottom:-120px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.05)}
+.nls-inner{position:relative;z-index:1;text-align:center}
+.nls-inner h2{font-size:clamp(26px,4vw,46px);font-weight:800;color:#fff;margin-bottom:12px}
+.nls-inner h2 span{color:rgba(255,255,255,.75);font-style:italic}
+.nls-inner p{font-size:17px;color:rgba(255,255,255,.78);margin-bottom:36px}
+.nl-form{display:flex;gap:12px;max-width:560px;margin:0 auto;flex-wrap:wrap}
+.nl-input{flex:1;min-width:220px;padding:15px 22px;border-radius:50px;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;outline:none}
+.nl-form button{padding:15px 28px;background:var(--dark);color:#fff;border:none;border-radius:50px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .3s;white-space:nowrap}
+.nl-form button:hover{background:#000;transform:translateY(-2px)}
+.cta-btns-wrap{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn-white{padding:14px 30px;background:#fff;color:var(--primary-dark);border-radius:50px;font-size:15px;font-weight:800;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(0,0,0,.12);transition:all .3s;font-family:'Nunito',sans-serif}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18);color:var(--primary-dark)}
+.btn-outline-white{padding:14px 30px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);border-radius:50px;font-size:15px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .3s;font-family:'Nunito',sans-serif}
+.btn-outline-white:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px);color:#fff}
+
+/* ═══ FOOTER ═══ */
+footer{background:#1E1B18;padding:70px 0 28px}
+.footer-logo img{height:56px;width:auto;object-fit:contain;border-radius:10px;background:rgba(255,255,255,.05);padding:4px}
+.footer-about{margin-top:16px;font-size:14px;color:rgba(255,255,255,.38);line-height:1.75;max-width:280px;font-weight:500}
+.footer-social{display:flex;gap:8px;margin-top:18px}
+.fsoc-btn{width:36px;height:36px;border:1px solid rgba(255,255,255,.12);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.38);transition:all .3s}
+.fsoc-btn:hover{border-color:var(--primary);color:var(--primary);background:rgba(201,162,74,.1);transform:translateY(-2px)}
+.footer-widget h4{font-size:13px;font-weight:800;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;font-family:'Nunito',sans-serif}
+.footer-links{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:13.5px;color:rgba(255,255,255,.38);font-weight:500;transition:color .3s}
+.footer-links a:hover{color:var(--primary)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.footer-contact-item i{color:var(--primary);font-size:15px;margin-top:2px;width:16px;flex-shrink:0}
+.footer-contact-item strong{display:block;font-size:13px;font-weight:800;color:rgba(255,255,255,.8);margin-bottom:2px;font-family:'Nunito',sans-serif}
+.footer-contact-item span,.footer-contact-item a{font-size:13px;color:rgba(255,255,255,.38);font-weight:500;display:block}
+.footer-contact-item a{color:rgba(255,255,255,.5);font-weight:600;transition:color .3s}
+.footer-contact-item a:hover{color:var(--primary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;margin-top:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p,.footer-bottom span{font-size:12px;color:rgba(255,255,255,.2);font-weight:500}
+.footer-bottom .gold{color:var(--primary)}
+.footer-bottom a{color:rgba(255,255,255,.35);font-weight:600;transition:color .3s}
+.footer-bottom a:hover{color:var(--primary)}
+
+/* ═══ TOAST ═══ */
+#toast{position:fixed;bottom:88px;right:28px;background:var(--green);color:#fff;padding:14px 22px;border-radius:18px;font-weight:700;font-size:13.5px;box-shadow:0 8px 30px rgba(34,181,115,.4);transform:translateY(100px);opacity:0;transition:all .4s;z-index:5000;display:flex;align-items:center;gap:9px;font-family:'Nunito',sans-serif}
+
+/* ═══ REVEAL ═══ */
+.rv,.rv-l,.rv-r{opacity:0;transition:opacity .7s ease,transform .7s ease}
+.rv{transform:translateY(30px)}.rv-l{transform:translateX(-30px)}.rv-r{transform:translateX(30px)}
+.rv.vis,.rv-l.vis,.rv-r.vis{opacity:1;transform:none}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:991px){
+  .about-img-box,.choose-img-stack,.transport-img-box{margin-bottom:40px}
+  .counter-item:nth-child(2n)::after{display:none}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .insta-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:767px){
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .header-top .d-flex{flex-direction:column;gap:4px;text-align:center}
+  .header-contact-list{justify-content:center;gap:10px;flex-wrap:wrap}
+  .section-padding{padding:60px 0}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-stats{gap:10px}
+  .hstat-box{padding:12px 14px}
+  .counter-item::after{display:none}
+  .nl-form{flex-direction:column}
+  .nl-form button{border-radius:50px}
+}
+@media(max-width:480px){
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+}
+.mb-form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:520px){.mb-form-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-spinner"></div>
+  <img class="pre-logo" src="data:image/jpeg;base64,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" alt="Logo La Victoire">
+  <p class="pre-txt">La Victoire · Tétouan</p>
+</div>
+
+<div id="pbar"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<div id="toast"></div>
+
+<!-- HEADER TOP -->
+<div class="header-top">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <p class="mb-0">École Privée d'Excellence — <strong>Crèche · Maternelle · Primaire</strong> à Tétouan</p>
+      <ul class="header-contact-list">
+        <li><i class="fal fa-envelope"></i><a href="mailto:contact@groupelavictoire.com">contact@groupelavictoire.com</a></li>
+        <li><i class="far fa-phone-alt"></i><a href="tel:0638915302">06 38 91 53 02</a></li>
+        <li><i class="fa-regular fa-location-dot"></i>Rue Yassima, Tétouan</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN HEADER -->
+<header class="main-header">
+  <div class="container">
+    <a href="#hero" class="header-logo">
+      <img src="data:image/jpeg;base64,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" alt="Logo La Victoire">
+    </a>
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#about">L'École</a></li>
+        <li><a href="#cycles">Programmes</a></li>
+        <li><a href="#activities">Vie Scolaire</a></li>
+        <li><a href="#transport">Transport</a></li>
+        <li><a href="#digital">Numérique</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#inscriptions" class="nav-cta"><i class="fas fa-pen me-1"></i>Inscriptions</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="container"><div class="mobile-menu" id="mobMenu">
+    <a href="#hero" onclick="toggleMob()">Accueil</a>
+    <a href="#about" onclick="toggleMob()">L'École</a>
+    <a href="#cycles" onclick="toggleMob()">Programmes</a>
+    <a href="#activities" onclick="toggleMob()">Vie Scolaire</a>
+    <a href="#transport" onclick="toggleMob()">Transport</a>
+    <a href="#digital" onclick="toggleMob()">Numérique</a>
+    <a href="#galerie" onclick="toggleMob()">Galerie</a>
+    <a href="#inscriptions" onclick="toggleMob()">Inscriptions</a>
+    <a href="#contact" onclick="toggleMob()">Contact</a>
+  </div></div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero-section" id="hero">
+  <div class="shape-blob hero-blob-1"></div>
+  <div class="shape-blob hero-blob-2"></div>
+  <div class="shape-blob hero-blob-3"></div>
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 rv-l">
+        <div class="hero-content">
+          <h1>Un lieu heureux pour <span>grandir</span> et apprendre</h1>
+          <p>École privée d'excellence à Tétouan — Crèche, Maternelle et Primaire. Un parcours bienveillant, trilingue et résolument moderne pour votre enfant.</p>
+          <div class="hero-buttons">
+            <a href="#inscriptions" class="theme-btn"><i class="fas fa-pen"></i> Inscrire mon enfant</a>
+            <a href="#about" class="theme-btn style-2"><i class="fas fa-arrow-right"></i> Découvrir l'école</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hstat-box rv" style="transition-delay:.1s"><div class="hstat-icon hi1"><i class="fas fa-earth-africa"></i></div><div><span class="hstat-v counter" data-t="3" data-s="">3</span><span class="hstat-l">Langues</span></div></div>
+            <div class="hstat-box rv" style="transition-delay:.15s"><div class="hstat-icon hi2"><i class="fas fa-children"></i></div><div><span class="hstat-v counter" data-t="200" data-s="+">200+</span><span class="hstat-l">Élèves</span></div></div>
+            <div class="hstat-box rv" style="transition-delay:.2s"><div class="hstat-icon hi3"><i class="fas fa-bus"></i></div><div><span class="hstat-v counter" data-t="2" data-s="">2</span><span class="hstat-l">Bus scolaires</span></div></div>
+            <div class="hstat-box rv" style="transition-delay:.25s"><div class="hstat-icon hi4"><i class="fas fa-heart"></i></div><div><span class="hstat-v counter" data-t="95" data-s="%">95%</span><span class="hstat-l">Satisfaction</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 rv-r">
+        <div class="hero-img-wrap">
+          <img class="hero-main-img lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&auto=format" alt="Enfants à l'École La Victoire">
+          <div class="hero-float-badge">
+            <div class="hfb-ico"><i class="fas fa-graduation-cap" style="color:var(--primary-dark)"></i></div>
+            <div class="hfb-txt"><strong>Trilinguisme</strong><span>Arabe · Français · Anglais</span></div>
+          </div>
+          <div class="hero-float-badge2">
+            <span class="hfb2-num">100%</span>
+            <span class="hfb2-txt">En ligne</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="about-section section-padding" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 rv-l">
+        <div class="about-img-box">
+          <img class="about-main-img lazy" src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=700&q=80&auto=format" alt="Philosophie La Victoire">
+          <div class="about-counter-badge">
+            <span class="acb-num counter" data-t="5" data-s=""><span class="acb-plus">+</span>5</span>
+            <span class="acb-txt">Années de<br>confiance</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 rv-r">
+        <div class="section-title text-start">
+          <span class="sub-title sub-bg-1"><i class="fas fa-school me-2"></i>À propos de nous</span>
+          <h2>Sûr, épanouissant & <span>éducatif</span> — tout ce dont votre enfant a besoin</h2>
+        </div>
+        <p class="mt-3">Fondée avec passion à Tétouan, l'École La Victoire propose un parcours éducatif d'excellence de la crèche au primaire. Notre philosophie place l'enfant au cœur de chaque décision — bienveillance, autonomie et ouverture sur le monde.</p>
+        <div class="about-check-list">
+          <div class="acl-item"><i class="fas fa-check"></i>Apprentissage actif & créatif</div>
+          <div class="acl-item"><i class="fas fa-check"></i>Sécurité & vidéosurveillance</div>
+          <div class="acl-item"><i class="fas fa-check"></i>Effectif maîtrisé</div>
+          <div class="acl-item"><i class="fas fa-check"></i>Trilinguisme naturel</div>
+          <div class="acl-item"><i class="fas fa-check"></i>Sorties au Parc de Nakata</div>
+          <div class="acl-item"><i class="fas fa-check"></i>École 100% digitale</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="pro-item">
+            <div class="pro-head"><h4>Trilinguisme & Ouverture culturelle</h4><span>95%</span></div>
+            <div class="progress"><div class="progress-bar pb-gold" data-w="95" style="width:0%"></div></div>
+          </div>
+          <div class="pro-item">
+            <div class="pro-head"><h4>Développement global de l'enfant</h4><span>90%</span></div>
+            <div class="progress"><div class="progress-bar pb-pink" data-w="90" style="width:0%"></div></div>
+          </div>
+          <div class="pro-item">
+            <div class="pro-head"><h4>Satisfaction des familles</h4><span>95%</span></div>
+            <div class="progress"><div class="progress-bar pb-green" data-w="95" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="mt-4"><a href="#inscriptions" class="theme-btn"><i class="fas fa-pen"></i> Inscrire mon enfant</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CYCLES / PROGRAMMES ═══════════ -->
+<section class="program-section section-padding" id="cycles">
+  <div class="shape-blob prog-blob-1"></div>
+  <div class="shape-blob prog-blob-2"></div>
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-1"><i class="fas fa-graduation-cap me-2"></i>Nos Programmes</span>
+      <h2>De la crèche au <span>primaire</span></h2>
+      <p>Un parcours cohérent et progressif pour chaque enfant, de 0 à 12 ans.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-xl-4 col-lg-4 col-md-6 rv" style="transition-delay:.05s">
+        <div class="program-card pc-gold h-100">
+          <div class="prog-icon pci-gold"><i class="fas fa-baby" style="color:var(--primary-dark)"></i></div>
+          <div class="age-tag at-gold">0 – 3 ans</div>
+          <h3>Crèche</h3>
+          <p>Un cadre sécurisant pour les tout-petits, avec des éducatrices spécialisées et un éveil sensoriel adapté à chaque âge.</p>
+          <ul class="prog-list">
+            <li><i class="fas fa-check-circle"></i>Éveil sensoriel et moteur</li>
+            <li><i class="fas fa-check-circle"></i>Éducatrices spécialisées</li>
+            <li><i class="fas fa-check-circle"></i>Premiers contacts avec les langues</li>
+            <li><i class="fas fa-check-circle"></i>Rythmes et alimentation adaptés</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 rv" style="transition-delay:.1s">
+        <div class="program-card pc-green h-100">
+          <div class="prog-icon pci-green"><i class="fas fa-child" style="color:#0D7A4A"></i></div>
+          <div class="age-tag at-green">3 – 6 ans</div>
+          <h3>Maternelle</h3>
+          <p>Pédagogie active et ludique, immersion trilingue naturelle et développement de l'autonomie dans un cadre bienveillant.</p>
+          <ul class="prog-list">
+            <li><i class="fas fa-check-circle"></i>Pédagogie active et participative</li>
+            <li><i class="fas fa-check-circle"></i>Immersion Ar · Fr · En</li>
+            <li><i class="fas fa-check-circle"></i>Éveil artistique & expression corporelle</li>
+            <li><i class="fas fa-check-circle"></i>Initiation au numérique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 rv" style="transition-delay:.15s">
+        <div class="program-card pc-blue h-100">
+          <div class="prog-icon pci-blue"><i class="fas fa-book-open" style="color:#1A56CC"></i></div>
+          <div class="age-tag at-blue">6 – 12 ans</div>
+          <h3>Primaire</h3>
+          <p>Maîtrise solide des fondamentaux, renforcement des trois langues, leadership et projets interdisciplinaires.</p>
+          <ul class="prog-list">
+            <li><i class="fas fa-check-circle"></i>Fondamentaux solides</li>
+            <li><i class="fas fa-check-circle"></i>Trois langues renforcées</li>
+            <li><i class="fas fa-check-circle"></i>Leadership & esprit critique</li>
+            <li><i class="fas fa-check-circle"></i>Informatique & culture numérique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 p-4 rounded-4 border rv" style="background:var(--cream)">
+      <div class="row align-items-center g-3">
+        <div class="col-md-8"><p class="mb-0 fw-bold text-dark"><i class="fas fa-check-circle me-2 text-warning"></i>Discipline positive · Trilinguisme · Effectif maîtrisé · Communication transparente · Sorties pédagogiques</p></div>
+        <div class="col-md-4 text-md-end"><div class="d-flex gap-2 justify-content-md-end flex-wrap"><span class="badge-active px-3 py-2 rounded-pill fw-bold fs-6">🇲🇦 Arabe</span><span class="badge-active px-3 py-2 rounded-pill fw-bold fs-6">🇫🇷 Français</span><span class="badge-active px-3 py-2 rounded-pill fw-bold fs-6">🇬🇧 Anglais</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ACTIVITIES ═══════════ -->
+<section class="activities-section section-padding" id="activities">
+  <div class="act-blob act-blob-1"></div>
+  <div class="act-blob act-blob-2"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-white"><i class="fas fa-rainbow me-2"></i>Développement global</span>
+      <h2 class="text-white">Vie de l'École & <span style="color:var(--primary)">Éveil</span></h2>
+      <p class="text-white-50">Bien plus qu'une école — un espace de vie, de création et de découverte.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.04s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80&auto=format" alt="Tech"><div class="act-badge">💻</div></div><div class="act-body"><h3>Technologie</h3><ul><li><i class="fas fa-chevron-right"></i>Informatique</li><li><i class="fas fa-chevron-right"></i>Tableaux intelligents</li><li><i class="fas fa-chevron-right"></i>Wi-Fi</li></ul></div></div></div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.08s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80&auto=format" alt="Art"><div class="act-badge">🎨</div></div><div class="act-body"><h3>Arts</h3><ul><li><i class="fas fa-chevron-right"></i>Arts plastiques</li><li><i class="fas fa-chevron-right"></i>Éveil musical</li><li><i class="fas fa-chevron-right"></i>Bibliothèque</li></ul></div></div></div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.12s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=400&q=80&auto=format" alt="Sport"><div class="act-badge">🏃</div></div><div class="act-body"><h3>Sport</h3><ul><li><i class="fas fa-chevron-right"></i>EPS</li><li><i class="fas fa-chevron-right"></i>Psychomotricité</li><li><i class="fas fa-chevron-right"></i>Expression corp.</li></ul></div></div></div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.16s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&q=80&auto=format" alt="Nature"><div class="act-badge">🌳</div></div><div class="act-body"><h3>Nature</h3><ul><li><i class="fas fa-chevron-right"></i>Parc de Nakata</li><li><i class="fas fa-chevron-right"></i>Sorties terrain</li><li><i class="fas fa-chevron-right"></i>Environnement</li></ul></div></div></div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.2s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=400&q=80&auto=format" alt="Spectacles"><div class="act-badge">🎭</div></div><div class="act-body"><h3>Spectacles</h3><ul><li><i class="fas fa-chevron-right"></i>Fin d'année</li><li><i class="fas fa-chevron-right"></i>Projets créatifs</li><li><i class="fas fa-chevron-right"></i>Fêtes scolaires</li></ul></div></div></div>
+      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 rv" style="transition-delay:.24s"><div class="activity-card"><div class="act-img"><img class="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80&auto=format" alt="Réussites"><div class="act-badge">🏆</div></div><div class="act-body"><h3>Réussites</h3><ul><i class="fas fa-chevron-right"></i>Diplômes</li><li><i class="fas fa-chevron-right"></i>Tableaux d'honneur</li><li><i class="fas fa-chevron-right"></i>Portes ouvertes</li></ul></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHOOSE / SECURITY ═══════════ -->
+<section class="choose-section section-padding" id="securite">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 rv-l">
+        <div class="choose-img-stack">
+          <img class="ci-main lazy" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=700&q=80&auto=format" alt="Sécurité La Victoire">
+          <img class="ci-float lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80&auto=format" alt="Enfants heureux">
+        </div>
+      </div>
+      <div class="col-lg-6 rv-r">
+        <div class="section-title text-start">
+          <span class="sub-title sub-bg-2"><i class="fas fa-shield-halved me-2"></i>Sécurité & Hygiène</span>
+          <h2>Votre enfant en toute <span>sécurité</span></h2>
+        </div>
+        <p class="mt-3 mb-4">Un environnement sûr, propre et surveillé — parce que la sécurité de vos enfants est notre priorité absolue, chaque jour.</p>
+        <div class="choose-cards">
+          <div class="choose-card rv" style="transition-delay:.05s"><div class="cc-ico cci1"><i class="fas fa-video"></i></div><div><h4>Vidéosurveillance complète</h4><p>Caméras dans toutes les salles de classe, couloirs et espaces communs. Système actif 24h/24.</p></div></div>
+          <div class="choose-card rv" style="transition-delay:.1s"><div class="cc-ico cci2"><i class="fas fa-door-closed"></i></div><div><h4>Accès sécurisé & contrôlé</h4><p>Entrée unique contrôlée. Sortie uniquement avec un adulte autorisé par la famille.</p></div></div>
+          <div class="choose-card rv" style="transition-delay:.15s"><div class="cc-ico cci3"><i class="fas fa-soap"></i></div><div><h4>Hygiène & Propreté irréprochable</h4><p>Toilettes nettoyées plusieurs fois par jour. Savon, gel hydroalcoolique. Nettoyage professionnel quotidien.</p></div></div>
+          <div class="choose-card rv" style="transition-delay:.2s"><div class="cc-ico cci4"><i class="fas fa-first-aid"></i></div><div><h4>Infirmerie & Protocole santé</h4><p>Espace infirmerie équipé. Personnel formé aux premiers secours. Protocole d'urgence strict.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COUNTER ═══════════ -->
+<section class="counter-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-lg-3"><div class="counter-item rv-s"><span class="counter-icon"><i class="fas fa-children"></i></span><span class="counter-num counter" data-t="200" data-s="+">200+</span><span class="counter-label">Élèves accompagnés</span><span class="counter-sub">Chaque année scolaire</span></div></div>
+      <div class="col-6 col-lg-3"><div class="counter-item rv-s" style="transition-delay:.07s"><span class="counter-icon"><i class="fas fa-earth-africa"></i></span><span class="counter-num counter" data-t="3" data-s="">3</span><span class="counter-label">Langues enseignées</span><span class="counter-sub">Arabe · Français · Anglais</span></div></div>
+      <div class="col-6 col-lg-3"><div class="counter-item rv-s" style="transition-delay:.14s"><span class="counter-icon"><i class="fas fa-bus"></i></span><span class="counter-num counter" data-t="2" data-s="">2</span><span class="counter-label">Bus scolaires</span><span class="counter-sub">Desservant Tétouan</span></div></div>
+      <div class="col-6 col-lg-3"><div class="counter-item rv-s" style="transition-delay:.21s"><span class="counter-icon"><i class="fas fa-heart"></i></span><span class="counter-num counter" data-t="95" data-s="%">95%</span><span class="counter-label">Satisfaction parents</span><span class="counter-sub">Enquête annuelle</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRANSPORT ═══════════ -->
+<section class="transport-section section-padding" id="transport">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 order-lg-2 rv-r">
+        <div class="section-title text-start">
+          <span class="sub-title sub-bg-3"><i class="fas fa-bus me-2"></i>Mobilité scolaire</span>
+          <h2>Deux bus pour <span>votre tranquillité</span></h2>
+        </div>
+        <p class="mt-3 mb-4">L'École La Victoire met à disposition deux bus scolaires desservant les principaux quartiers de Tétouan. Chaque trajet est encadré pour garantir la sécurité et le confort de vos enfants.</p>
+        <ul class="transport-features">
+          <li><i class="fas fa-shield-halved"></i>Sécurité maximale : ceintures & encadrement adulte</li>
+          <li><i class="fas fa-route"></i>Itinéraires couvrant Tétouan</li>
+          <li><i class="fas fa-clock"></i>Horaires fixes, ponctualité garantie</li>
+          <li><i class="fab fa-whatsapp"></i>Communication WhatsApp avec les chauffeurs</li>
+          <li><i class="fas fa-map-location-dot"></i>Renseignements : 06 38 91 53 02</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 order-lg-1 rv-l">
+        <div class="transport-img-box">
+          <img class="tr-main lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format" alt="Bus scolaire La Victoire">
+          <img class="tr-float lazy" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80&auto=format" alt="Transport scolaire">
+          <div class="tr-num-badge"><span class="tnb-num">2</span><span class="tnb-txt">Bus<br>scolaires</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RESTAURATION ═══════════ -->
+<section class="restau-section section-padding" id="restau">
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-6"><i class="fas fa-utensils me-2"></i>Restauration & Épicerie</span>
+      <h2>Bien manger <span>à l'école</span></h2>
+      <p>Un réfectoire convivial et une mini-épicerie pour accompagner les élèves tout au long de la journée.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 rv" style="transition-delay:.06s">
+        <div class="restau-card">
+          <div class="restau-img"><img class="lazy" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=80&auto=format" alt="Réfectoire scolaire"></div>
+          <div class="restau-body">
+            <h3><i class="fas fa-bowl-food me-2" style="color:var(--primary)"></i>Salle de Réfectoire</h3>
+            <p>Un espace de repas agréable, calme et propre où les élèves déjeunent dans de bonnes conditions. L'école encourage la convivialité et le bon comportement à table.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i>Espace lumineux et bien ventilé</li>
+              <li><i class="fas fa-check-circle"></i>Tables adaptées à l'âge des enfants</li>
+              <li><i class="fas fa-check-circle"></i>Encadrement permanent pendant le repas</li>
+              <li><i class="fas fa-check-circle"></i>Nettoyage et désinfection quotidiens</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 rv" style="transition-delay:.12s">
+        <div class="restau-card">
+          <div class="restau-img"><img class="lazy" src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&q=80&auto=format" alt="Mini épicerie école"></div>
+          <div class="restau-body">
+            <h3><i class="fas fa-store me-2" style="color:var(--green)"></i>Mini-Épicerie Scolaire</h3>
+            <p>Une mini-épicerie interne où les élèves peuvent acheter des snacks et boissons sains pendant les pauses, dans un cadre supervisé et accessible.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i>Produits sains et adaptés aux enfants</li>
+              <li><i class="fas fa-check-circle"></i>Accessible pendant les récréations</li>
+              <li><i class="fas fa-check-circle"></i>Supervision permanente du personnel</li>
+              <li><i class="fas fa-check-circle"></i>Tarifs accessibles, paiement simple</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DIGITAL ═══════════ -->
+<section class="digital-section section-padding" id="digital">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 rv-l">
+        <div class="section-title text-start">
+          <span class="sub-title sub-bg-white"><i class="fas fa-microchip me-2"></i>Notre avantage numérique</span>
+          <h2 class="text-white">Une école résolument <span>digitale</span></h2>
+        </div>
+        <p class="mt-3 mb-4" style="color:rgba(255,255,255,.55)">Le digital est au cœur de notre projet — une vraie infrastructure au service des familles et des apprentissages, construite pour durer.</p>
+        <div class="digital-feature"><div class="df-icon"><i class="fas fa-file-pen" style="color:var(--primary)"></i></div><div><p class="df-title">Inscriptions 100% en ligne</p><p class="df-text">Procédure d'admission entièrement digitale, simple, rapide et sécurisée.</p></div></div>
+        <div class="digital-feature"><div class="df-icon"><i class="fas fa-credit-card" style="color:var(--primary)"></i></div><div><p class="df-title">Paiement de scolarité digital</p><p class="df-text">Règlement sécurisé en ligne avec reçus automatiques.</p></div></div>
+        <div class="digital-feature"><div class="df-icon"><i class="fas fa-chalkboard-user" style="color:var(--primary)"></i></div><div><p class="df-title">Salles connectées & équipées</p><p class="df-text">Tableaux intelligents, vidéoprojecteurs et Wi-Fi haut débit dans chaque classe.</p></div></div>
+      </div>
+      <div class="col-lg-6 rv-r">
+        <div class="digital-panel">
+          <div class="dp-header"><div class="dp-logo"><i class="fas fa-school" style="color:#fff;font-size:22px"></i></div><div class="dp-title"><strong>École La Victoire</strong><span>Tableau de bord administratif</span></div></div>
+          <div class="dp-rows">
+            <div class="dp-row"><div class="dp-rl"><i class="fas fa-circle-check" style="color:var(--green)"></i>Inscriptions en ligne</div><span class="badge-active">Actif</span></div>
+            <div class="dp-row"><div class="dp-rl"><i class="fas fa-circle-check" style="color:var(--green)"></i>Paiement digital sécurisé</div><span class="badge-active">Actif</span></div>
+            <div class="dp-row"><div class="dp-rl"><i class="fas fa-circle-check" style="color:var(--green)"></i>Salles équipées & connectées</div><span class="badge-active">Actif</span></div>
+            <div class="dp-row dim"><div class="dp-rl"><i class="far fa-clock" style="color:var(--primary)"></i>Espace parents numérique</div><span class="badge-soon">Bientôt</span></div>
+            <div class="dp-row dim"><div class="dp-rl"><i class="far fa-clock" style="color:var(--primary)"></i>Suivi pédagogique en ligne</div><span class="badge-soon">Bientôt</span></div>
+          </div>
+          <p class="mt-4 mb-2" style="font-size:11px;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase">Équipements en classe</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge-soon px-3 py-2 rounded-pill"><i class="fas fa-display me-1"></i>Vidéoprojecteurs</span>
+            <span class="badge-soon px-3 py-2 rounded-pill"><i class="fas fa-chalkboard-user me-1"></i>Tableaux intelligents</span>
+            <span class="badge-soon px-3 py-2 rounded-pill"><i class="fas fa-wifi me-1"></i>Wi-Fi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="testimonial-section section-padding" id="temoignages">
+  <div class="testi-blob testi-blob-1"></div>
+  <div class="testi-blob testi-blob-2"></div>
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-2"><i class="fas fa-quote-left me-2"></i>Paroles de familles</span>
+      <h2>Ce que disent <span>nos parents</span></h2>
+      <p>La confiance de nos familles est notre plus belle récompense.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-lg-4 col-md-6 rv" style="transition-delay:.05s"><div class="testi-card"><span class="testi-quote">"</span><p class="testi-text">Depuis que ma fille est à La Victoire, elle s'épanouit chaque jour. Elle rentre en chantant des chansons en trois langues — c'est magique !</p><div class="testi-stars">★★★★★</div><div class="testi-author"><img class="testi-avatar lazy" src="https://i.pravatar.cc/96?img=47" alt="Salma"><div><span class="testi-name">Salma B.</span><span class="testi-role">Maman de Nour · Maternelle</span></div></div></div></div>
+      <div class="col-lg-4 col-md-6 rv" style="transition-delay:.1s"><div class="testi-card"><span class="testi-quote">"</span><p class="testi-text">L'inscription en ligne était simple et rapide. Recontactés le lendemain même — la visite de l'école nous a convaincus immédiatement.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><img class="testi-avatar lazy" src="https://i.pravatar.cc/96?img=12" alt="Youssef"><div><span class="testi-name">Youssef E.</span><span class="testi-role">Papa de Hamza · CP</span></div></div></div></div>
+      <div class="col-lg-4 col-md-6 rv" style="transition-delay:.15s"><div class="testi-card"><span class="testi-quote">"</span><p class="testi-text">L'équipe pédagogique est exceptionnelle. Mon fils timide est devenu un enfant confiant, curieux et passionné par l'apprentissage. Merci.</p><div class="testi-stars">★★★★★</div><div class="testi-author"><img class="testi-avatar lazy" src="https://i.pravatar.cc/96?img=36" alt="Rachida"><div><span class="testi-name">Rachida A.</span><span class="testi-role">Maman d'Adam · CE1</span></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<section class="gallery-section section-padding" id="galerie">
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-3"><i class="fas fa-images me-2"></i>Notre école en images</span>
+      <h2>Galerie <span>Photos</span></h2>
+      <p>Des espaces et des moments pensés pour la joie d'apprendre. Galerie prête pour accueillir toutes vos photos.</p>
+    </div>
+    <div class="gal-tabs">
+      <div class="gtab active" data-cat="all">Toutes</div>
+      <div class="gtab" data-cat="classes">Classes</div>
+      <div class="gtab" data-cat="nature">Nature & Sorties</div>
+      <div class="gtab" data-cat="activites">Activités</div>
+      <div class="gtab" data-cat="evenements">Événements</div>
+      <div class="gtab" data-cat="transport">Transport</div>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item" data-cat="classes"><img class="lazy" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80&auto=format" alt="Classe connectée"><div class="gal-overlay"><span class="gal-label">📚 Salle connectée</span></div></div>
+      <div class="gal-item" data-cat="classes"><img class="lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80&auto=format" alt="Maternelle"><div class="gal-overlay"><span class="gal-label">🌱 Maternelle</span></div></div>
+      <div class="gal-item" data-cat="nature"><img class="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=80&auto=format" alt="Parc Nakata"><div class="gal-overlay"><span class="gal-label">🌳 Parc de Nakata</span></div></div>
+      <div class="gal-item" data-cat="activites"><img class="lazy" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80&auto=format" alt="Art"><div class="gal-overlay"><span class="gal-label">🎨 Arts plastiques</span></div></div>
+      <div class="gal-item" data-cat="activites"><img class="lazy" src="https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=500&q=80&auto=format" alt="Sport"><div class="gal-overlay"><span class="gal-label">⚽ Sport</span></div></div>
+      <div class="gal-item" data-cat="evenements"><img class="lazy" src="https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=500&q=80&auto=format" alt="Spectacle"><div class="gal-overlay"><span class="gal-label">🎭 Spectacle</span></div></div>
+      <div class="gal-item" data-cat="evenements"><img class="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&q=80&auto=format" alt="Cérémonie"><div class="gal-overlay"><span class="gal-label">🏆 Cérémonie</span></div></div>
+      <div class="gal-item" data-cat="transport"><img class="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80&auto=format" alt="Bus"><div class="gal-overlay"><span class="gal-label">🚌 Bus scolaire</span></div></div>
+      <div class="gal-item" data-cat="nature"><img class="lazy" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=500&q=80&auto=format" alt="Sortie"><div class="gal-overlay"><span class="gal-label">🎒 Sortie pédagogique</span></div></div>
+      <div class="gal-item" data-cat="classes"><img class="lazy" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&q=80&auto=format" alt="Primaire"><div class="gal-overlay"><span class="gal-label">📖 Cours primaire</span></div></div>
+      <div class="gal-item" data-cat="activites"><img class="lazy" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&q=80&auto=format" alt="Informatique"><div class="gal-overlay"><span class="gal-label">💻 Informatique</span></div></div>
+      <div class="gal-item" data-cat="transport"><img class="lazy" src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&q=80&auto=format" alt="Transport sécurisé"><div class="gal-overlay"><span class="gal-label">🛡️ Transport sécurisé</span></div></div>
+    </div>
+    <p class="gal-note mt-3"><i class="fas fa-info-circle me-1" style="color:var(--primary)"></i>Galerie prête pour accueillir vos photos — remplacez simplement les images par les vôtres.</p>
+    <div class="text-center mt-3"><a href="#contact" class="theme-btn"><i class="fas fa-camera"></i> Vous avez des photos ? Contactez-nous</a></div>
+  </div>
+</section>
+
+<!-- ═══════════ INSTAGRAM ═══════════ -->
+<section class="instagram-section section-padding">
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-6"><i class="fab fa-instagram me-2"></i>Instagram</span>
+      <h2>Suivez-nous sur <span>Instagram</span></h2>
+      <p>Retrouvez la vie quotidienne de l'école sur notre compte @ecole.la.victoire</p>
+    </div>
+    <div class="insta-grid rv">
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><img class="lazy" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=300&q=80&auto=format" alt="Instagram"><div class="insta-item-ov"><i class="fab fa-instagram"></i></div></div>
+    </div>
+    <div class="insta-cta"><a href="https://www.instagram.com/ecole.la.victoire" target="_blank" class="insta-btn"><i class="fab fa-instagram"></i> @ecole.la.victoire</a></div>
+  </div>
+</section>
+
+<!-- ═══════════ INSCRIPTIONS ═══════════ -->
+<section class="enroll-section section-padding" id="inscriptions">
+  <div class="enroll-blob" style="width:360px;height:360px;background:#fff;top:-80px;right:-80px"></div>
+  <div class="enroll-blob" style="width:260px;height:260px;background:var(--primary);bottom:40px;left:-60px"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-white"><i class="fas fa-pen me-2"></i>Rejoindre La Victoire</span>
+      <h2 class="text-white">Inscriptions <span>en ligne</span></h2>
+      <p class="text-white-50">Simple · Rapide · Sans engagement · Réponse sous 24h</p>
+    </div>
+    <div class="row g-5 mt-2">
+      <div class="col-lg-5 rv-l">
+        <div class="enroll-info">
+          <h3>Les étapes d'admission</h3>
+          <p>Un processus transparent et accompagné, du premier contact à l'intégration de votre enfant.</p>
+          <div class="esteps">
+            <div class="estep"><div class="estep-num">1</div><div class="estep-body"><h4>Pré-inscription en ligne</h4><p>Remplissez le formulaire. Réponse sous 24h ouvrables.</p></div></div>
+            <div class="estep"><div class="estep-num">2</div><div class="estep-body"><h4>Visite de l'école</h4><p>Découvrez les locaux et rencontrez l'équipe.</p></div></div>
+            <div class="estep"><div class="estep-num">3</div><div class="estep-body"><h4>Entretien d'orientation</h4><p>Pour placer votre enfant dans le niveau adapté.</p></div></div>
+            <div class="estep"><div class="estep-num">4</div><div class="estep-body"><h4>Constitution du dossier</h4><p>Documents listés ci-dessous.</p></div></div>
+            <div class="estep"><div class="estep-num">5</div><div class="estep-body"><h4>Bienvenue à La Victoire ! 🎉</h4><p>Confirmation officielle et intégration.</p></div></div>
+          </div>
+          <div class="docs-box">
+            <h4><i class="fas fa-clipboard-list me-2" style="color:var(--primary)"></i>Documents à prévoir</h4>
+            <ul>
+              <li><i class="fas fa-chevron-right"></i>Livret de famille (copie)</li>
+              <li><i class="fas fa-chevron-right"></i>4 photos d'identité récentes</li>
+              <li><i class="fas fa-chevron-right"></i>Carnet de santé & vaccinations</li>
+              <li><i class="fas fa-chevron-right"></i>Bulletins antérieurs (primaire)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 rv-r">
+        <div class="form-box">
+          <h3><i class="fas fa-pen-to-square me-2" style="color:var(--primary)"></i>Pré-inscription en ligne</h3>
+          <span class="fsub">Lundi–Vendredi · Réponse garantie sous 24h · Sans engagement</span>
+          <div class="fstep-bar" id="fsb"><div class="fstep-track" id="fst"></div>
+            <div class="fstep-it"><div class="fstep-c active" id="sc1">1</div><div class="fstep-l active" id="sl1">Parent</div></div>
+            <div class="fstep-it"><div class="fstep-c" id="sc2">2</div><div class="fstep-l" id="sl2">Enfant</div></div>
+            <div class="fstep-it"><div class="fstep-c" id="sc3">3</div><div class="fstep-l" id="sl3">Message</div></div>
+          </div>
+          <div class="fpanel active" id="fp1">
+            <div class="mb-form-row mb-3"><input class="inpt" type="text" id="fPr" placeholder="Votre prénom"><input class="inpt" type="text" id="fNo" placeholder="Votre nom"></div>
+            <div class="mb-3"><input class="inpt w-100" type="tel" id="fTe" placeholder="📱 Téléphone / WhatsApp"></div>
+            <div class="mb-3"><input class="inpt w-100" type="email" id="fEm" placeholder="📧 Email (optionnel)"></div>
+            <div class="fnav"><button class="btn-next" onclick="nS(2)">Suivant : votre enfant <i class="fas fa-arrow-right ms-1"></i></button></div>
+          </div>
+          <div class="fpanel" id="fp2">
+            <div class="mb-3"><input class="inpt w-100" type="text" id="fCh" placeholder="Prénom de l'enfant"></div>
+            <div class="mb-form-row mb-3">
+              <input class="inpt" type="number" id="fAg" placeholder="Âge" min="0" max="12">
+              <select class="inpt" id="fCy"><option value="">Cycle souhaité...</option><option>Crèche (0–3 ans)</option><option>Maternelle (3–6 ans)</option><option>Primaire (6–12 ans)</option></select>
+            </div>
+            <div class="mb-3"><select class="inpt w-100"><option>Année scolaire 2025–2026</option><option>Année scolaire 2026–2027</option></select></div>
+            <div class="fnav"><button class="btn-back" onclick="nS(1)"><i class="fas fa-arrow-left me-1"></i> Retour</button><button class="btn-next" onclick="nS(3)">Suivant <i class="fas fa-arrow-right ms-1"></i></button></div>
+          </div>
+          <div class="fpanel" id="fp3">
+            <div class="mb-3"><textarea class="inpt w-100" id="fMs" placeholder="Message, questions, disponibilités (optionnel)..."></textarea></div>
+            <div class="mb-3"><select class="inpt w-100"><option value="">Comment nous avez-vous connus ?</option><option>Bouche à oreille</option><option>Facebook / Instagram</option><option>Google</option><option>Devant l'école</option><option>Autre</option></select></div>
+            <div class="recap-box mb-3"><p id="fRe" style="color:rgba(255,255,255,.6)">Complétez les étapes précédentes</p></div>
+            <div class="fnav"><button class="btn-back" onclick="nS(2)"><i class="fas fa-arrow-left me-1"></i></button><button class="btn-next" onclick="submitF()"><i class="fas fa-paper-plane me-1"></i> Envoyer ma demande</button></div>
+          </div>
+          <div class="form-success" id="fSu">
+            <div class="scheck"><i class="fas fa-check"></i></div>
+            <h3>Demande envoyée !</h3>
+            <p>Merci pour votre confiance. Notre équipe vous contactera dans les 24h.</p>
+            <p style="color:var(--primary);font-weight:800"><i class="fas fa-phone me-1"></i>06 38 91 53 02</p>
+          </div>
+          <p class="text-center mt-3" style="font-size:12.5px;color:rgba(255,255,255,.3)" id="fnote"><i class="fas fa-lock me-1"></i> Données confidentielles · Jamais partagées</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="contact-section section-padding" id="contact">
+  <div class="container">
+    <div class="section-title text-center rv">
+      <span class="sub-title sub-bg-4"><i class="fas fa-location-dot me-2"></i>Nous trouver</span>
+      <h2>Contact <span>& Accès</span></h2>
+      <p>Notre équipe est à votre disposition du lundi au vendredi.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-3 col-sm-6 rv" style="transition-delay:.04s"><div class="con-info-card h-100"><div class="cic-ico cico1"><i class="fas fa-location-dot"></i></div><div class="cic-body"><strong>Adresse</strong><span>Rue Yassima, en face de la Pharmacie Bakkali</span><span>Tétouan 93000, Maroc</span></div></div></div>
+      <div class="col-md-3 col-sm-6 rv" style="transition-delay:.08s"><div class="con-info-card h-100"><div class="cic-ico cico2"><i class="fas fa-phone"></i></div><div class="cic-body"><strong>Téléphone</strong><a href="tel:0638915302">06 38 91 53 02</a><span>Lun.–Ven. 7h30–17h00</span></div></div></div>
+      <div class="col-md-3 col-sm-6 rv" style="transition-delay:.12s"><div class="con-info-card h-100"><div class="cic-ico cico3"><i class="fas fa-envelope"></i></div><div class="cic-body"><strong>Email</strong><a href="mailto:contact@groupelavictoire.com">contact@groupelavictoire.com</a><span>Réponse sous 24h</span></div></div></div>
+      <div class="col-md-3 col-sm-6 rv" style="transition-delay:.16s"><div class="con-info-card h-100"><div class="cic-ico cico4"><i class="fas fa-globe"></i></div><div class="cic-body"><strong>Réseaux sociaux</strong><a href="http://www.groupelavictoire.com" target="_blank">groupelavictoire.com ↗</a><div class="soc-btns mt-2"><a href="https://www.facebook.com/EcoleLaVictoireEnseignementPrive" target="_blank" class="soc-btn"><i class="fab fa-facebook" style="color:#1877F2"></i>Facebook</a><a href="https://www.instagram.com/ecole.la.victoire" target="_blank" class="soc-btn"><i class="fab fa-instagram" style="color:#E1306C"></i>Instagram</a></div></div></div></div>
+    </div>
+    <div class="row g-4 mt-3">
+      <div class="col-lg-8 rv-l">
+        <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Rue%20Yassima%20Pharmacie%20Bakkali%20Tetouan%2093000%20Maroc&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy" title="Localisation École La Victoire"></iframe></div>
+      </div>
+      <div class="col-lg-4 rv-r">
+        <div class="hours-box h-100">
+          <h4><i class="far fa-clock me-2" style="color:var(--primary)"></i>Horaires d'ouverture</h4>
+          <div class="hours-row"><span>Lundi – Vendredi</span><span class="hr-open">7h30 – 17h00</span></div>
+          <div class="hours-row"><span>Samedi</span><span class="hr-closed">Fermé</span></div>
+          <div class="hours-row"><span>Dimanche</span><span class="hr-closed">Fermé</span></div>
+          <div class="mt-4 p-3 rounded-3" style="background:var(--primary-light)">
+            <p class="mb-2 fw-bold" style="color:var(--primary-dark);font-size:14px"><i class="fas fa-map-marker-alt me-1"></i>Rue Yassima</p>
+            <p class="mb-0" style="font-size:13px;color:var(--primary-dark)">En face de la Pharmacie Bakkali<br>Tétouan 93000, Maroc</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NEWSLETTER / CTA ═══════════ -->
+<section class="newsletter-section">
+  <div class="nls-inner">
+    <div class="container">
+      <h2>Prêt à offrir le meilleur <span>à votre enfant ?</span></h2>
+      <p>Inscriptions ouvertes pour 2025–2026. Rejoignez la famille La Victoire.</p>
+      <div class="nl-form">
+        <input class="nl-input" type="email" placeholder="Entrez votre email...">
+        <button onclick="subNl(this)">S'abonner</button>
+      </div>
+      <div class="cta-btns-wrap">
+        <a href="#inscriptions" class="btn-white"><i class="fas fa-pen"></i> Inscrire mon enfant</a>
+        <a href="tel:0638915302" class="btn-outline-white"><i class="fas fa-phone"></i> 06 38 91 53 02</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-xl-4 col-lg-4">
+        <div class="footer-logo">
+          <img src="data:image/jpeg;base64,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" alt="Logo La Victoire">
+        </div>
+        <p class="footer-about">École privée d'excellence — Crèche, Maternelle et Primaire. Trilinguisme, numérique, bienveillance à Tétouan, Maroc.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/EcoleLaVictoireEnseignementPrive" target="_blank" class="fsoc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/ecole.la.victoire" target="_blank" class="fsoc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="http://www.groupelavictoire.com" target="_blank" class="fsoc-btn"><i class="fas fa-globe"></i></a>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-6">
+        <div class="footer-widget">
+          <h4>L'École</h4>
+          <ul class="footer-links">
+            <li><a href="#about">Notre philosophie</a></li>
+            <li><a href="#securite">Sécurité & Hygiène</a></li>
+            <li><a href="#restau">Restauration</a></li>
+            <li><a href="#galerie">Galerie photos</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-6">
+        <div class="footer-widget">
+          <h4>Programmes</h4>
+          <ul class="footer-links">
+            <li><a href="#cycles">Crèche (0–3 ans)</a></li>
+            <li><a href="#cycles">Maternelle (3–6 ans)</a></li>
+            <li><a href="#cycles">Primaire (6–12 ans)</a></li>
+            <li><a href="#activities">Vie scolaire</a></li>
+            <li><a href="#transport">Transport</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4">
+        <div class="footer-widget">
+          <h4>Nous contacter</h4>
+          <div class="footer-contact-item"><i class="fas fa-location-dot"></i><div><strong>Adresse</strong><span>Rue Yassima, face Pharmacie Bakkali<br>Tétouan 93000, Maroc</span></div></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><div><strong>Téléphone</strong><a href="tel:0638915302">06 38 91 53 02</a></div></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><div><strong>Email</strong><a href="mailto:contact@groupelavictoire.com">contact@groupelavictoire.com</a></div></div>
+          <div class="footer-contact-item"><i class="fas fa-globe"></i><div><strong>Site web</strong><a href="http://www.groupelavictoire.com" target="_blank">www.groupelavictoire.com</a></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 École La Victoire · Rue Yassima, Pharmacie Bakkali · Tétouan 93000, Maroc · Tous droits réservés</p>
+      <span>Site réalisé par <a href="https://fasopost.com" target="_blank">Fasopost Digital</a> · <a href="tel:+212777346787">+212 777 346 787</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+/* PRELOADER */
+window.addEventListener('load',()=>{let p=0;const f=setInterval(()=>{p+=14;if(p>=100){clearInterval(f);setTimeout(()=>document.getElementById('preloader').classList.add('hide'),300);}},80);});
+
+/* NAV MOBILE */
+function toggleMob(){const h=document.getElementById('ham');const m=document.getElementById('mobMenu');h.classList.toggle('open');m.classList.toggle('open');}
+
+/* SCROLL */
+window.addEventListener('scroll',()=>{
+  const sc=window.scrollY;
+  document.getElementById('pbar').style.width=((sc/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';
+  document.getElementById('back-top').classList.toggle('show',sc>400);
+  const h=document.querySelector('.main-header');if(h)h.style.boxShadow=sc>40?'0 4px 24px rgba(0,0,0,.1)':'0 2px 20px rgba(0,0,0,.08)';
+},{passive:true});
+
+/* REVEAL */
+const rvO=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rvO.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>rvO.observe(el));
+
+/* COUNTERS */
+function animC(el){const t=+el.dataset.t,s=el.dataset.s||'',dur=1600,st=performance.now();const tick=n=>{const p=Math.min((n-st)/dur,1),e=1-Math.pow(2,-10*p);el.textContent=Math.floor(e*t)+s;if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);}
+const cO=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){animC(e.target);cO.unobserve(e.target);}});},{threshold:.5});
+document.querySelectorAll('.counter').forEach(el=>cO.observe(el));
+
+/* PROGRESS BARS */
+const pbO=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.progress-bar').forEach(b=>{b.style.width=b.dataset.w+'%';});pbO.unobserve(e.target);}});},{threshold:.3});
+document.querySelectorAll('.about-section').forEach(s=>pbO.observe(s));
+
+/* LAZY IMAGES */
+const iO=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const img=e.target;img.onload=()=>img.classList.add('loaded');img.onerror=()=>img.classList.add('loaded');if(!img.src||img.src===window.location.href)img.src=img.dataset.src||img.src;else img.classList.add('loaded');iO.unobserve(img);}});},{rootMargin:'250px'});
+document.querySelectorAll('.lazy').forEach(img=>iO.observe(img));
+// Trigger all images that are already in viewport
+setTimeout(()=>{document.querySelectorAll('.lazy:not(.loaded)').forEach(img=>{if(img.getBoundingClientRect().top<window.innerHeight){img.onload=()=>img.classList.add('loaded');img.src=img.src;img.classList.add('loaded');}});},500);
+
+/* GALLERY FILTER */
+document.querySelectorAll('.gtab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.gtab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const cat=tab.dataset.cat;document.querySelectorAll('.gal-item').forEach(item=>{item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';});});});
+
+/* GALLERY LIGHTBOX */
+(()=>{const ov=document.createElement('div');ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s;cursor:pointer;backdrop-filter:blur(8px)';const img=document.createElement('img');img.style.cssText='max-width:90vw;max-height:88vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.5);transform:scale(.9);transition:transform .3s';ov.appendChild(img);document.body.appendChild(ov);ov.onclick=()=>{ov.style.opacity='0';ov.style.visibility='hidden';img.style.transform='scale(.9)';};document.querySelectorAll('.gal-item').forEach(gi=>{gi.onclick=()=>{const s=gi.querySelector('img')?.src;if(s){img.src=s;ov.style.opacity='1';ov.style.visibility='visible';setTimeout(()=>img.style.transform='scale(1)',10);}};});})();
+
+/* ACTIVE NAV */
+const secO=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.nav-menu a').forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});}});},{threshold:.4});
+document.querySelectorAll('section[id]').forEach(s=>secO.observe(s));
+
+/* FORM */
+let curS=1;
+function nS(s){
+  if(s===2){const p=document.getElementById('fPr').value.trim(),t=document.getElementById('fTe').value.trim();if(!p||!t){shk(document.getElementById('fp1'));return;}}
+  if(s===3){const ch=document.getElementById('fCh').value.trim(),cy=document.getElementById('fCy').value;if(!ch||!cy){shk(document.getElementById('fp2'));return;}
+    document.getElementById('fRe').innerHTML=`<strong style="color:rgba(255,255,255,.8)">${document.getElementById('fPr').value} ${document.getElementById('fNo').value}</strong> · ${document.getElementById('fTe').value}<br>Enfant : <strong style="color:rgba(255,255,255,.8)">${ch}</strong>${document.getElementById('fAg').value?' · '+document.getElementById('fAg').value+' ans':''} · <strong style="color:rgba(255,255,255,.8)">${cy}</strong>`;}
+  document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('active'));document.getElementById('fp'+s).classList.add('active');curS=s;updF();
+}
+function updF(){
+  for(let i=1;i<=3;i++){const c=document.getElementById('sc'+i),l=document.getElementById('sl'+i);c.className='fstep-c'+(i<curS?' done':i===curS?' active':'');l.className='fstep-l'+(i===curS?' active':'');}
+  document.getElementById('fst').style.width=((curS-1)/2*100)+'%';
+}
+function shk(el){el.style.animation='shake .4s ease';setTimeout(()=>el.style.animation='',400);}
+const ss=document.createElement('style');ss.textContent='@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}';document.head.appendChild(ss);
+function submitF(){document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('active'));document.getElementById('fnote').style.display='none';document.getElementById('fSu').classList.add('show');showToast('✅ Votre demande a été envoyée !');}
+
+/* TOAST */
+function showToast(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.style.transform='translateY(0)';t.style.opacity='1';setTimeout(()=>{t.style.transform='translateY(100px)';t.style.opacity='0';},4500);}
+
+/* NEWSLETTER */
+function subNl(btn){const inp=btn.previousElementSibling;if(!inp.value.includes('@')){inp.style.borderColor='red';return;}inp.style.borderColor='';btn.textContent='✓ Inscrit !';inp.value='';setTimeout(()=>btn.textContent='S\'abonner',3000);}
+</script>
+</body>
+</html>
+
+
